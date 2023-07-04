@@ -1,0 +1,39 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  #title: 
+  navbar:
+    #background: danger
+    #foreground: success
+    left:
+      - href: index.qmd
+        text: Home
+      - href: cv.qmd
+        text: Curriculum Vitae
+    tools:
+      - icon: github
+        href: https://github.com/fricour
+      - icon: linkedin
+        href: https://linkedin.com/in/florian-ricour-a06359281
+  page-footer: 
+    center: "Copyright &copy; 2023 Florian Ricour. All rights reserved."
+    background: light
+        
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    page-layout: full
+
+editor: visual
+
+execute: 
+  echo: false
+  warning: false
+  error: true
+  cache: true

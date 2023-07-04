@@ -1,0 +1,26 @@
+::: grid
+::: g-col-11
+{{< fa user-graduate size=2xl >}} <strong>[Education]{style="font-size:30px;position:absolute;top:1%;left:4%;"}</strong>
+
+[October 2019 --- May 2023:]{style="color:gray;"} <strong>[PhD in Oceanography]{style="font-size:20px;"}</strong>, University of Liège (Belgium) & Sorbonne University (France)<br>
+
+-   Dissertation title: Towards a new insight of the carbon transport in the global ocean<br> 
+-   Axis 1: Development of an embedded zooplankton classification algorithm for autonomous underwater vehicles. 
+-   Axis 2: Study of sinking particles in the Labrador Sea using underwater cameras and transmissometers. 
+-   Axis 3: Reassessment of the global carbon sequestration of the Biological Carbon Pump using a continuous approach to carbon storage. <br><br>
+
+[September 2016 --- June 2018:]{style="color:gray;"} <strong>[Master of Science in Oceanography]{style="font-size:20px;"}</strong>, University of Liège (Belgium)<br>
+
+-   Master's thesis title: Study of the Deep Chlorophyll Maximum in the Black Sea as seen from Biogeochemical-Argo floats
+-   Grade: Summa cum laude
+-   Albert Distèche award for the best master's thesis in oceanography
+
+[September 2013 --- June 2016:]{style="color:gray;"} <strong>[Bachelor of Applied Science]{style="font-size:20px;"}</strong>, University of Liège (Belgium)<br>
+
+-   Major in Physics and Electricity
+-   Grade: Cum laude
+:::
+
+::: g-col-1
+:::
+:::

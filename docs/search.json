@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "",
+    "section": "",
+    "text": "Hi, I am Florian !  I have a PhD in oceanography, but it turns out that I’m more of a data expert than an ocean expert. During my PhD, I developed an automatic zooplankton classification model using machine learning tools for on-board cameras in autonomous underwater vehicles. For this, I developed a python package called uvpec to train different image classification models for the Underwater Vision Profiler 6. Working with Big Data was also part of the job so I started to develop a bunch of Shiny apps (e.g. APPERO, REFINE and CARBON) to better visualize and try to better understand the carbon dynamics of the ocean at local and global scales. In my spare time, I try to keep up with the latest geeky thing, mostly from Posit (ex-RStudio) and web app development (mostly Shiny) as well as data vizualisation. Lastly, I ride my bike. A lot."
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "",
+    "section": "",
+    "text": "Education\nOctober 2019 — May 2023: PhD in Oceanography, University of Liège (Belgium) & Sorbonne University (France)\n\nDissertation title: Towards a new insight of the carbon transport in the global ocean\nAxis 1: Development of an embedded zooplankton classification algorithm for autonomous underwater vehicles.\nAxis 2: Study of sinking particles in the Labrador Sea using underwater cameras and transmissometers.\nAxis 3: Reassessment of the global carbon sequestration of the Biological Carbon Pump using a continuous approach to carbon storage. \n\nSeptember 2016 — June 2018: Master of Science in Oceanography, University of Liège (Belgium)\n\nMaster’s thesis title: Study of the Deep Chlorophyll Maximum in the Black Sea as seen from Biogeochemical-Argo floats\nGrade: Summa cum laude\nAlbert Distèche award for the best master’s thesis in oceanography\n\nSeptember 2013 — June 2016: Bachelor of Applied Science, University of Liège (Belgium)\n\nMajor in Physics and Electricity\nGrade: Cum laude"
+  }
+]
