@@ -16,7 +16,7 @@ image_scale(me, "550x550")
 <strong><span style="font-size: xxx-large;">Hi, I am Florian ! </span></strong><br><br>
 I have a PhD in oceanography, but it turns out that I'm more of a data expert than an ocean expert.<br><br>
 During my PhD, I developed an automatic zooplankton classification model using machine learning tools for on-board cameras in autonomous underwater vehicles. For this, I developed a python package called [uvpec](https://github.com/ecotaxa/uvpec/) to train different image classification models for the [Underwater Vision Profiler 6](http://www.hydroptic.com/index.php/public/Page/product_item/UVP6-LP).<br><br>
-Working with Big Data was also part of the job so I started to develop a bunch of Shiny apps (e.g. [APPERO](https://fricour.shinyapps.io/Appero/), [REFINE](https://fricour.shinyapps.io/CARBON_REFINE/) and [CARBON](https://fricour.shinyapps.io/carbon_fluxes_app/)) to better visualize and try to better understand the carbon dynamics of the ocean at local and global scales.<br><br>
+Working with Big Data was also part of the job so I started to develop a bunch of Shiny apps (e.g. [REFINE](https://fricour.shinyapps.io/CARBON_REFINE/),  [CARBON](https://fricour.shinyapps.io/carbon_fluxes_app/) and [APPERO](https://fricour.shinyapps.io/Appero/)) to better visualize and try to better understand the carbon dynamics of the ocean at local and global scales.<br><br>
 In my spare time, I try to keep up with the latest geeky thing, mostly from Posit (ex-RStudio) and web app development (mostly Shiny) as well as data vizualisation.<br><br>
 Lastly, I ride my bike. A lot.
 :::
