@@ -6,7 +6,7 @@
 [October 2019 --- Current:]{style="color:gray;"} <strong>[PhD Fellow]{style="font-size:20px;"}</strong>, National Fund for Scientific Research (Belgium)<br>
 
 -   Research focused on the global carbon cycle using Big Data, machine learning and [autonomous underwater platforms](https://erc-refine.eu/index.php).
--   [Full list](https://sorbi.uliege.be/ph-search?uid=u230523) of publications and communications.
+-   [Full list](https://orbi.uliege.be/ph-search?uid=u230523) of publications and communications.
 
 [October 2018 --- September 2019:]{style="color:gray;"} <strong>[Researcher]{style="font-size:20px;"}</strong>, University of Liège (Belgium)<br>
 
