@@ -1,1 +1,1 @@
-# fricour.github.io
+Website made with Quarto !
