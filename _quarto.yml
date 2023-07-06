@@ -17,6 +17,8 @@ website:
         href: https://github.com/fricour
       - icon: linkedin
         href: https://linkedin.com/in/florian-ricour-a06359281
+      - icon: envelope
+        href: mailto:florian.ricour@uliege.be?
   page-footer: 
     center: "Copyright &copy; 2023 Florian Ricour. All rights reserved."
     background: light
