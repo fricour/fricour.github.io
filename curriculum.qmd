@@ -1,16 +1,16 @@
 ::: grid
-::: g-col-11
+::: g-col-12
 <!-- {{< fa person-digging size=2xl >}} <strong>[Job experience]{style="font-size:30px;position:absolute;top:.6%;left:4%;"}</strong> -->
-<strong>[Job experience]{style="font-size:30px;color: white;background-color:#001852;border-radius: 10px"}</strong>
+<strong>[Work experience]{style="font-size:30px;color: white;background-color:#001852;border-radius: 10px"}</strong>
 
 [October 2019 --- Current:]{style="color:gray;"} <strong>[PhD Fellow]{style="font-size:20px;"}</strong>, National Fund for Scientific Research (Belgium)<br>
 
--   Research focused on the global carbon cycle using Big Data, machine learning and [autonomous underwater platforms](https://erc-refine.eu/index.php).
+-   Research focused on the global marine carbon cycle using Big Data, machine learning and [autonomous underwater platforms](https://erc-refine.eu/index.php).
 -   [Full list](https://orbi.uliege.be/ph-search?uid=u230523) of publications and communications.
 
 [October 2018 --- September 2019:]{style="color:gray;"} <strong>[Researcher]{style="font-size:20px;"}</strong>, University of Liège (Belgium)<br>
 
--   Reassessment of the disolved oxygen content in the world ocean by building a new oxygen climatology.
+-   Reassessment of the dissolved oxygen content in the world ocean by building a new oxygen climatology.
 
 [June 2018 --- August 2018:]{style="color:gray;"} <strong>[Internship]{style="font-size:20px;"}</strong>, Nature Conservation Center, American University of Beirut (Lebanon)<br>
 
@@ -59,6 +59,6 @@
 -   Languages: French (native) --- English (C1) --- Spanish (B1)
 :::
 
-::: g-col-1
+::: g-col-0
 :::
 :::
