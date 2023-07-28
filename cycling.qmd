@@ -1,0 +1,13 @@
+```{r, fig.height = 10}
+
+library(leaflet)
+library(leafgl)
+
+cycling <- sf::read_sf('data/cycling.geojson')
+
+leaflet() |>
+  addProviderTiles(provider = providers$CartoDB.Positron) |>
+  fitBounds(lng1 = 0, lat1 = 40, lng2 = 10, lat2 = 50) |>
+  addGlPolylines(data = cycling)
+
+```

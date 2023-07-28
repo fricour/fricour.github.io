@@ -12,6 +12,8 @@ website:
         text: Home
       - href: curriculum.qmd
         text: Curriculum Vitae
+      - href: cycling.qmd
+        text: Cycling
     tools:
       - icon: github
         href: https://github.com/fricour
