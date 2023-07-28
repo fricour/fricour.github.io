@@ -1,6 +1,7 @@
 ::: grid
 ::: g-col-12
 <!-- {{< fa person-digging size=2xl >}} <strong>[Job experience]{style="font-size:30px;position:absolute;top:.6%;left:4%;"}</strong> -->
+
 <strong>[Work experience]{style="font-size:30px;color: white;background-color:#001852;border-radius: 10px"}</strong>
 
 [October 2019 --- Current:]{style="color:gray;"} <strong>[PhD Fellow]{style="font-size:20px;"}</strong>, National Fund for Scientific Research (Belgium)<br>
@@ -17,13 +18,14 @@
 -   Research on user-friendly and cost-effective water quality tests for local communities in Lebanon to map the water quality using citizen science and a dedicated phone application.
 
 <!-- {{< fa user-graduate size=2xl >}} <strong>[Education]{style="font-size:30px;position:absolute;top:27.5%;left:4%;"}</strong> -->
+
 <strong>[Education]{style="font-size:30px;color: white;background-color:#001852;border-radius: 10px"}</strong>
 
 [October 2019 --- May 2023:]{style="color:gray;"} <strong>[PhD in Oceanography]{style="font-size:20px;"}</strong>, University of Liège (Belgium) & Sorbonne University (France)<br>
 
--   [Dissertation](https://orbi.uliege.be/handle/2268/304539) title: Towards a new insight of the carbon transport in the global ocean<br> 
--   Axis 1: Development of an embedded zooplankton classification algorithm for autonomous underwater vehicles. 
--   Axis 2: Study of sinking particles in the Labrador Sea using underwater cameras and transmissometers. 
+-   [Dissertation](https://orbi.uliege.be/handle/2268/304539) title: Towards a new insight of the carbon transport in the global ocean<br>
+-   Axis 1: Development of an embedded zooplankton classification algorithm for autonomous underwater vehicles.
+-   Axis 2: Study of sinking particles in the Labrador Sea using underwater cameras and transmissometers.
 -   Axis 3: Reassessment of the global carbon sequestration of the Biological Carbon Pump using a continuous approach to carbon storage. <br>
 
 [September 2016 --- June 2018:]{style="color:gray;"} <strong>[Master of Science in Oceanography]{style="font-size:20px;"}</strong>, University of Liège (Belgium)<br>
@@ -38,23 +40,25 @@
 -   Grade: Cum laude
 
 <!-- {{< fa briefcase size=2xl >}} <strong>[On-the-side projects]{style="font-size:30px;position:absolute;top:64.5%;left:4%;"}</strong> -->
+
 <strong>[On-the-side projects]{style="font-size:30px;color: white;background-color:#001852;border-radius: 10px"}</strong>
 
-<strong>[Copernicus hackathons]{style="font-size:20px;"}</strong><br> 
+<strong>[Copernicus hackathons]{style="font-size:20px;"}</strong><br>
 
--   Brussels (Belgium) --- Using satellite imagery to detect acid mine drainage (1<sup>st</sup>) 
+-   Brussels (Belgium) --- Using satellite imagery to detect acid mine drainage (1<sup>st</sup>)
 -   Sofia (Bulgaria) --- Using satellite imagery to detect chlorophyll-a blooms (3<sup>rd</sup>)
 -   Cork (Ireland) --- Using satellite imagery to detect coastal changes for the protection of historical sites (5<sup>th</sup>)
 
-<strong>[Start-up incubator and accelerator]{style="font-size:20px;"}</strong><br> 
+<strong>[Start-up incubator and accelerator]{style="font-size:20px;"}</strong><br>
 
 -   [PARSEC](https://parsec-accelerator.eu/100parsec/) --- Project EXAMINE, a software prototype that can detect acid mine drainage using open-source Copernicus satellite data.
 -   Copernicus Accelerator
 
 <!-- {{< fa laptop-code size=2xl >}} <strong>[Skills]{style="font-size:30px;position:absolute;top:88%;left:4.5%;"}</strong> -->
+
 <strong>[Skills]{style="font-size:30px;color: white;background-color:#001852;border-radius: 10px"}</strong>
 
--   Technical: R --- R Shiny --- Python --- Quarto --- Git --- Linux --- Bash (when needed) 
+-   Technical: R --- R Shiny --- Python --- Quarto --- Git --- Linux --- Bash (when needed)
 -   Soft: Autonomy --- Leadership --- Project management --- Get things done (and on time)
 -   Languages: French (native) --- English (C1) --- Spanish (B1)
 :::
