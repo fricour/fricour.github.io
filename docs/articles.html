@@ -77,9 +77,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -147,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="academic">academic <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="academic">academic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="biological carbon pump">biological carbon pump <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -176,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="academic" data-listing-file-modified-sort="1696245833300" data-listing-reading-time-sort="12" data-listing-word-count-sort="2362">
+<div class="g-col-1" data-index="0" data-categories="academic,biological carbon pump" data-listing-date-sort="1696197600000" data-listing-file-modified-sort="1696261941766" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2692">
 <a href="./posts/converse/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -190,13 +190,19 @@ CONVERSE
 <div class="listing-category" onclick="window.quartoListingCategory('academic'); return false;">
 academic
 </div>
+<div class="listing-category" onclick="window.quartoListingCategory('biological carbon pump'); return false;">
+biological carbon pump
+</div>
 </div>
 <div class="card-text listing-description">
-In our paper entitled <em>Century-scale carbon sequestration flux throughout the ocean by the biological pump</em>, we estimate that the flux of organic carbon that is sequestered for <span class="math inline">…</span><span class="math inline"></span><strong></strong>
+Century-scale biological carbon sequestration flux
 </div>
-<div class="card-attribution card-text-small start">
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
-
+Florian Ricour
+</div>
+<div class="listing-date">
+Oct 2, 2023
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@ title: "CONVERSE"
 description: "Century-scale biological carbon sequestration flux"
 author: "Florian Ricour"
 date: "2023-10-02"
-categories: [academic]
+categories: [academic, biological carbon pump]
 image: "images/synthesis_pump_VF.png"
 
 execute:
@@ -350,6 +350,61 @@ Plot.plot({
 
 # CONVERSE in numbers
 
-I hope you have spotted some interesting features in the previous section ! Now, it's time for some numbers to close the topic once and for all !
+The previous section highlights regional disparities between CONVERSE versions for each carbon pump. Now, let's focus on the global water-column sequestration fluxes.
+
+In the figure below, you can compare all CONVERSE versions for the BCP and their export pathways (i.e. BGP, mixing and migrant pumps) as well as the global sinking POC fluxes at 1000 m and 2000 m. We also computed the ratio between the BCP global sequestration fluxes and the global POC fluxes at 1000 m and 2000 m.
+
+```{ojs}
+converse_version = [
+  {version: "C1", BGP: 0.63, BCP: 0.88, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.38, POC_2000m: 0.19,
+  ratio_1000m: 2.3, ratio_2000m: 4.6},
+  {version: "C2", BGP: 0.92, BCP: 1.16, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.68, POC_2000m: 0.42,
+  ratio_1000m: 1.7, ratio_2000m: 2.8},
+  {version: "C3", BGP: 0.71, BCP: 0.95, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.47, POC_2000m: 0.26,
+  ratio_1000m: 2.0, ratio_2000m: 3.7},
+  {version: "C4", BGP: 1.89, BCP: 2.61, Mixing: 0.45, Migrant: 0.26, POC_1000m: 1.13, POC_2000m: 0.47,
+  ratio_1000m: 2.3, ratio_2000m: 5.6},
+  {version: "C5", BGP: 1.86, BCP: 2.44, Mixing: 0.32, Migrant: 0.26, POC_1000m: 1.13, POC_2000m: 0.47,
+  ratio_1000m: 2.2, ratio_2000m: 5.2},
+  {version: "C6", BGP: 0.76, BCP: 1.00, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.46, POC_2000m: 0.19,
+  ratio_1000m: 2.2, ratio_2000m: 5.3},
+  {version: "C7", BGP: 0.63, BCP: 0.96, Mixing: 0.22, Migrant: 0.11, POC_1000m: 0.38, POC_2000m: 0.19,
+  ratio_1000m: 2.5, ratio_2000m: 5.1},
+];
+
+viewof select_pump = Inputs.select(
+  [
+    {label: "BGP", value: "BGP"},
+    {label: "Mixing", value: "Mixing"},
+    {label: "Migrant (diel)", value: "Migrant"},
+    {label: "BCP", value: "BCP"},
+    {label: "POC flux at 1000 m", value: "POC_1000m"},
+    {label: "POC flux at 2000 m", value: "POC_2000m"},
+    {label: "Ratio BCP over POC flux at 1000 m", value: "ratio_1000m"},
+    {label: "Ratio BCP over POC flux at 2000 m", value: "ratio_2000m"}
+  ],
+  {label: html`Global F<sub>seq</sub> <br>(Pg C year<sup>-1</sup>)`, format: x => x.label, value: maps.find(y => y.label == "BGP")}
+);
+
+Plot.plot({
+  <!-- caption: "Histogram of CONVERSE values based on selected pump", -->
+  y: {grid: true},
+  marks: [
+    Plot.barY(converse_version, {x: "version", y: select_pump.value}),
+    Plot.text(converse_version, {x: "version", y: select_pump.value, text: select_pump, textAnchor: "middle", dy: 10, fill: "white"}),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+Overall, the concept of continuous vertical sequestration for the BCP (therefore including the mixing and migrant pumps), estimates global carbon sequestration fluxes 2-3 or 3-6 times higher than what you would obtain from using a fixed reference sequestration depth at, respectively, 1000 m and 2000 m.
+
+In addition, we estimated that the mixing and migrant pumps together contribute to 21-34% of global sequestration fluxes (11-23% for the mixing and 9-12% for the migrant pump). However, as explained earlier, the migrant pump is underestimated because we only have seasonal migration flux estimates for the northern North Atlantic.
+
+Finally, we computed that fluxes above 1000 and 2000 m accounts, respectively, for 47-68% and 66-88% of global CONVERSE carbon sequestration fluxes, which is substantial.
 
 # Conclusion
+
+Carbon sequestration is something that you might have heard in the news. This concept is related to the removal of carbon from interaction with the atmosphere. In this work, we have computed carbon sequestration ($\geq$ 100 years) fluxes for seven versions of CONVERSE, a framework that computes sequestration on the entire water column (i.e. **continuous** sequestration). In addition to the BGP, we also added the contribution to carbon sequestration by vertically migrating animals and physical mixing processes, with an estimated contribution of 21-34% to the BCP sequestration flux, even though they do not transport carbon into the deep ocean.
+
+Finally, our calculations show that the 100-year carbon sequestration flux by the BCP is 2-3 or 3-6 times larger than what would be estimated using a fixed sequestration depth at, respectively, 1000 and 2000 m. Thus, the concept of continuous vertical sequestration should be applied to further studies to take into account the fact that using a fixed sequestration depth misses between 47 and 88% of the global BCP sequestration flux.
