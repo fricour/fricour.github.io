@@ -1,0 +1,326 @@
+---
+execute:
+  echo: false
+  warning: false
+  error: true
+  cache: true
+  
+format: 
+  html:
+    page-layout: article
+    
+bibliography: references.bib
+cls: journal-of-oceanography.csl
+link-citations: true
+---
+
+# Century-scale biological carbon sequestration flux
+
+In our paper entitled *Century-scale carbon sequestration flux throughout the ocean by the biological pump*, we estimate that the flux of organic carbon that is sequestered for $\geq$ 100 years by the biological carbon pump (BCP) is 0.9-2.6 Pg C year$^{-1}$. This estimation is **up to 6 times larger** than previous estimates based on the common assumption that sequestration only occurs in the deep ocean (i.e. typically below 1000 m).
+
+Instead, our study is based on the concept of continuous vertical sequestration, that we refer to as CONVERSE, which states that sequestration (for $\geq$ 100 years) can occur throughout the entire water column.
+
+While this work is published, I feel like something is missing. Based on my experience with scientific literature, I would say that it is not uncommon to encounter those issues when you write a paper:
+
+1.  Too much text and you don't want to throw away half of your research so you write (lots of) pages of supplementary material.
+2.  Figures are static hence it is sometimes difficult to "feel" the data.
+3.  Figures and tables are too big or too complicated because you don't want to go back to point 1.
+
+Therefore, by writing this summary, I hope to bring some data interactivity and a clearer understanding of our results.
+
+# Keywords to keep in mind
+
+Before going into details, let me define some keywords to understand the main points of our paper.
+
+-   DIC --- dissolved inorganic carbon, composed of $CO_{2}$, $H_{2}CO_{3}$, $HCO_{3}^{-}$ and $CO_{3}^{2-}$.
+
+-   Remineralization --- respiration of organic matter by organisms which consequently produce biogenic DIC (i.e. DIC$_{bio}$).
+
+-   POC / DOC --- particulate / dissolved organic carbon.
+
+-   Biological carbon pump (BCP) --- series of ocean processes through which inorganic carbon is fixed as organic matter by photosynthesis in sunlit surface water and then transported to the ocean interior, and possibly the sediment, resulting in the storage of carbon [@Ipcc2019-qc].
+
+-   Carbon sequestration --- it refers to a given time where DIC is hidden from the atmosphere. In our paper, we use the IPCC definition which states that 100 years is a period long enough to consider that this carbon is sequestered (i.e. stored away from the atmosphere).
+
+-   $f_{100}$ --- it represents the fraction of water at a given location and depth that will remain in the ocean for $\geq$ 100 years [@Siegel2021-oz]. In other words, it represents the fraction of inorganic carbon in a water parcel that will remain hidden from the atmosphere for at least a century.
+
+# A taste of $f_{100}$
+
+The model of @Siegel2021-oz returns $f_{100}$ values in 48 oceanic layers, from the surface down to \~5500 m depth. Using the map below, you can observe the regional disparities of $f_{100}$ at different depths and highlight regions of interest by saturating the colorbar ($f_{100}$ ranges between 0 and 1).
+
+```{ojs}
+
+d3 = require("d3@7")
+
+world = FileAttachment("data_converse/countries-110m.json").json()
+land = topojson.feature(world, world.objects.land)
+
+f100_data = d3.json("data_converse/f100_full.geojson").then(d => d.features.map(f => {
+  const c = d3.geoCentroid(f);
+  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};
+}))
+
+viewof max_value1 = Inputs.range([0, 1], {step: 0.05, label: "max colorbar"})
+
+viewof f100_depth = Inputs.select(
+  [
+    5, 15, 25, 36, 48, 61, 75, 91,
+    109, 130, 153, 179, 209, 242,
+    279, 320, 365, 415, 470, 531,
+    597, 669, 747, 832, 923, 1022,
+    1128, 1241, 1363, 1493, 1631,
+    1778, 1935, 2101, 2277, 2462,
+    2658, 2865, 3083, 3312, 3552,
+    3804, 4068, 4345, 4634, 4937,
+    5253, 5582
+  ],
+  {label: "depth (m)", value: 531.0}
+)
+
+f100_filtered = f100_data.filter(data => data.depth == f100_depth);
+
+Plot.plot({
+  projection: {type: "equal-earth"},
+  color: {
+    scheme: "BuPu",
+    domain: [0, max_value1],
+    legend: true,
+    label: "f100"
+  },
+  marks: [
+    Plot.raster(f100_filtered, {
+    fill: "value",
+    width: 180,
+    height: 91,
+    x1: -180,
+    y1: -90,
+    x2: 180,
+    y2: 90,
+    clip: "sphere",
+    interpolate: "barycentric"
+}),
+    Plot.geo(land, {fill: "currentColor", fillOpacity: 1}),
+    Plot.sphere(),
+  ]
+})
+```
+
+It is interesting to note that some regions (e.g. North Indian Ocean, Eastern Pacific, Antarctic margin) have $f_{100}$ values above 0.5 at already \~500 m, indicating that the carbon sequestration flux would be underestimated in those regions if the traditional approach (i.e. sequestration assumed to occur below a fixed reference depth, typically 1000 m) was used. In contrast, other regions (e.g. North Eastern Atlantic, Antarctic Circumpolar Current) have $f_{100}$ values below 0.5 at 1000 m. Following traditional metrics, we would therefore overestimate the carbon sequestration flux in those regions.
+
+Using those $f_{100}$ values, it is therefore possible to compute carbon sequestration fluxes ($F_{seq}$). For each water layer of thickness $\Delta z$, we need to compute the remineralization flux ($F_{remin}$), that is the flux of biogenic DIC, and multiply it by the corresponding $f_{100}$ values to get the sequestration flux of biogenic DIC.
+
+$$
+F_{seq}(\Delta z) = F_{remin}(\Delta z) \times f_{100}(\Delta z)
+$$
+
+Based on that equation, it looks like we only need to compute $F_{remin}$ and the work is over ! It is of course a little trickier.
+
+# A new paradigm for the BCP
+
+If you remember the definition of the BCP, it says *\[...\] organic matter \[...\] transported to the ocean interior \[...\]*. The carbon flux leaving the euphotic zone (EZ, where there is enough light for photosynthesis to occur) for the ocean interior is referred to as the export flux. The export depth is often set at 100 m but can also be set at the base of the EZ.
+
+Until recently, the transport of organic carbon was solely attributed to the gravitational settling of POC. However, @Boyd2019-ez revised this assumption by adding new biological and physical mechanisms that inject sinking (i.e. POC) and suspended (i.e. DOC) particles at depth through the action of vertically migrating organisms and physical circulation (see figure below).
+
+![[Conceptual representation of the three export pathways of the BCP $\textcopyright$Thomas Boniface.]{style="color: gray;"}](images/synthesis_pump_VF.png){width="1000" height="500"}
+
+The BCP can therefore be seen as the combination of three export pathways:
+
+1.  The biological gravitational pump (BGP).
+2.  The biologically mediated particle injection pump (migrant pump), which consists in the direct injection of POC below the euphotic zone through the vertical migration of animals (on daily and seasonal time scales).
+3.  The physically mediated particle injection pump (mixing pump), composed of three separate pumps: the mixed layer pump, the eddy subduction pump and the large-scale subduction pump that directly inject DOC below the surface layer (i.e. euphotic zone).
+
+# A variety of CONVERSE versions
+
+Thus, to estimate the global sequestration flux by the BCP, we needed to take into account the remineralization flux of each export pathway. For this, we used POC and DOC data derived from the model of @DeVries2017-wu as well as POC fluxes obtained from the best known relationship of @Martin1987-um --- Martin's Law --- which describes (empirically) the attenuation of the sinking POC flux with depth.
+
+$$
+F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
+$$
+
+where $F_{z}$, $z_{export}$ and $b$ are, respectively, the estimated POC flux at depth $z$, the depth of the export flux and the remineralization factor.
+
+Using different remineralization factors (fixed, local or regional), data sources (model data or empirical), export flux (model data from @Henson2012-ck or @DeVries2017-wu) export depths (100 m or base of EZ), we computed 7 distinct CONVERSE versions which are briefly resumed in the following table.
+
+```{r}
+library(tibble)
+library(gt)
+library(gtExtras)
+library(flextable)
+library(latex2exp)
+
+table_fremin <- tibble(
+  version = c("C1", "C2", "C3", "C4", "C5", "C6", "C7"),
+  export_depth = c(rep("100 m", 3), "EZ base", rep("100 m", 3)),
+  b = c(0.86, "variable", "regional", "-", "-", 0.86, 0.86),
+  BGP = c(rep("Martin's Law", 3), "model data", "model data", "export ratio", "Martin's Law"),
+  Mixing_pump = c(rep("export ratio", 3), "model data", "model data", "export ratio", "derived from POC export"),
+  Migrant = c(rep("derived from POC export", 7))
+)
+ 
+gt(table_fremin) |>
+  cols_label(
+    version = "CONVERSE version",
+    export_depth = "Export depth",
+    b = "Remineralization factor",
+    BGP = "BGP",
+    Mixing_pump = "Mixing pump",
+    Migrant = "Migrant pump"
+  ) |>
+  tab_footnote(
+    footnote = "To compare CONVERSE versions using different value of POC export flux, we used a scaling factor that we refer to as the export ratio, which is the ratio of the global POC export flux at 100 m from Henson et al., (2012) to the one from DeVries et al., (2017).",
+    locations = cells_column_labels(
+      columns = c(BGP, Mixing_pump)
+    )
+  ) |>
+  tab_footnote(
+    footnote = "For the diel migration pump, we used the POC export at 100 m while we used the POC flux at ~600m for the seasonal migration pump. However, the later is only based on data from the northern North Atlantic hence it is underestimated and will be neglected here.",
+    locations = cells_column_labels(
+      columns = c(Migrant)
+    )
+  )
+```
+
+# A visual tool to compare the 7 versions
+
+If you read our paper (especially the supplementary material), you will quickly notice that we have **lots** of maps and tables which makes it sometimes difficult to compare the seven versions.
+
+To improve the understanding of what's going on between all CONVERSE versions, you will find below two little Earth that you can play with to focus on your area of interest.
+
+Available data (without CONVERSE duplicates, see previous table):
+
+-   BCP (= BGP + Mixing + Migrant) sequestration fluxes
+-   BGP, mixing and **diel** migrant pump sequestration fluxes
+-   POC export flux at 100 m (two data sources) and at the EZ base
+-   POC sequestration fluxes at 1000 m (i.e. fixed sequestration reference depth)
+
+```{ojs}
+
+viewof rotate2 = Inputs.form([
+  Inputs.range([-180, 180], {step: 1, label: "longitude"}),
+  Inputs.range([-90, 90], {step: 1, label: "latitude"}),
+])
+
+viewof max_value2 = Inputs.range([0, 100], {step: 0.05, label: "max colorbar"})
+
+maps = [
+  {label: "POC export 100 m (Henson et al., 2012)", value: "FexpH"},
+  {label: "POC export 100 m (DeVries et al., 2017)", value: "FexpT"},
+  {label: "POC export EZ base (DeVries et al., 2017)", value: "FexpZeu"},
+  {label: "BGP - C1/C6/C7", value: "FseqPOC_H_100m_martin"},
+  {label: "BGP - C2", value: "FseqPOC_H_100m_henson"},
+  {label: "BGP - C3", value: "FseqPOC_H_100m_guidi"},
+  {label: "BGP - C4", value: "FseqPOC_ST_Zeu"},
+  {label: "BGP - C5", value: "FseqPOC_ST_100m"},
+  {label: "Mixing - C1/C2/C3", value: "FseqDOC_H_100m_martin"},
+  {label: "Mixing - C4", value: "FseqDOC_ST_Zeu"},
+  {label: "Mixing - C5", value: "FseqDOC_ST_100m"},
+  {label: "Mixing - C6", value: "FseqDOC_C6"},
+  {label: "Mixing - C7", value: "FseqDOC_H_100m_C7"},
+  {label: "Migrant - C1/C2/C3/C6/C7", value: "FseqMigrD_H_100m_martin"},
+  {label: "Migrant - C4/C5", value: "FseqMigrD_ST_Zeu"},
+  {label: "BCP - C1", value: "FseqBCPs_H_100m_martin"},
+  {label: "BCP - C2", value: "FseqBCPs_H_100m_henson"},
+  {label: "BCP - C3", value: "FseqBCPs_H_100m_guidi"},
+  {label: "BCP - C4", value: "FseqBCPs_ST_Zeu"},
+  {label: "BCP - C5", value: "FseqBCPs_ST_100m"},
+  {label: "BCP - C6", value: "FseqBCPs_H_100m_C6"},
+  {label: "BCP - C7", value: "FseqBCPs_H_100m_C7"},
+  {label: "Fseq@1000 m - C1/C7", value: "FseqPOC1000m_martin"},
+  {label: "Fseq@1000 m - C2", value: "FseqPOC1000m_henson"},
+  {label: "Fseq@1000 m - C3", value: "FseqPOC1000m_guidi"},
+  {label: "Fseq@1000 m - C4/C5", value: "FseqPOC1000m_C4"},
+  {label: "Fseq@1000 m - C6", value: "FseqPOC1000m_C6"},
+]
+
+viewof left_data = Inputs.select(
+  maps, {label: "left data", format: x => x.label, value: maps.find(y => y.label == "POC export 100 m (Henson et al., 2012)")}
+);
+
+viewof right_data = Inputs.select(
+  maps, {label: "right data", format: x => x.label, value: maps.find(y => y.label == "POC export 100 m (DeVries et al., 2017)")}
+);
+```
+
+::: columns
+::: {.column width="50%"}
+```{ojs}
+
+data_selected_left = d3.json(`data_converse/${left_data.value}.geojson`).then(d => d.features.map(f => {
+  const c = d3.geoCentroid(f);
+  return {value: f.properties.value, longitude: c[0], latitude: c[1]};
+}))
+
+Plot.plot({
+  projection: {width: 500, height: 500, type: "orthographic", rotate: rotate2},
+  <!-- projection: {type: "orthographic", rotate: [-longitude, -latitude], domain: circle}, -->
+  color: {
+    scheme: "BuPu",
+    domain: [0, max_value2],
+    legend: true,
+    label: "carbon flux (mg C m-2 year-1)"
+  },
+  marks: [
+    Plot.raster(data_selected_left, {
+    fill: "value",
+    width: 180,
+    height: 91,
+    x1: -180,
+    y1: -90,
+    x2: 180,
+    y2: 90,
+    clip: "sphere",
+    interpolate: "barycentric",
+    pointerEvents: "auto",
+    tip: true
+}),
+    Plot.geo(land, {fill: "currentColor", fillOpacity: 1}),
+    Plot.sphere(),
+  ]
+})
+```
+:::
+
+::: {.column width="50%"}
+```{ojs}
+
+data_selected_right = d3.json(`data_converse/${right_data.value}.geojson`).then(d => d.features.map(f => {
+  const c = d3.geoCentroid(f);
+  return {value: f.properties.value, longitude: c[0], latitude: c[1]};
+}))
+
+
+Plot.plot({
+  projection: {width: 500, height: 500, type: "orthographic", rotate: rotate2},
+  color: {
+    scheme: "BuPu",
+    domain: [0, max_value2],
+    legend: true,
+    label: "carbon flux (mg C m-2 year-1)"
+  },
+  marks: [
+    Plot.raster(data_selected_right, {
+    fill: "value",
+    width: 180,
+    height: 91,
+    x1: -180,
+    y1: -90,
+    x2: 180,
+    y2: 90,
+    clip: "sphere",
+    interpolate: "barycentric",
+    pointerEvents: "auto",
+    tip: true
+}),
+    Plot.geo(land, {fill: "currentColor", fillOpacity: 1}),
+    Plot.sphere(),
+  ]
+})
+```
+:::
+:::
+
+# CONVERSE in numbers
+
+I hope you have spotted some interesting features in the previous section ! Now, it's time for some numbers to close the topic once and for all !
+
+# Conclusion
