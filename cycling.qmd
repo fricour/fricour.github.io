@@ -1,3 +1,7 @@
+Roads (commuting, bikepacking and training) since 2017.
+
+No car --- no engine (except sometimes the train) --- only freedom (and some pain but that's part of the fun).
+
 ```{r, fig.height = 10}
 
 library(leaflet)
