@@ -11,4 +11,4 @@ page-layout: full
 title-block-banner: false
 ---
 
-Visualization is essential for sharing scientific knowledge with a wider audience. This pages contains some vulgarization articles on research that have been (or are in the process of being) published.
+Visualization is essential for sharing scientific knowledge with a wider audience. This page contains some vulgarization articles on research that have been (or are in the process of being) published.
