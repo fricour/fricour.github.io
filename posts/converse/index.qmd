@@ -168,7 +168,7 @@ $$
 
 where $F_{z}$, $z_{export}$ and $b$ are, respectively, the estimated POC flux at depth $z$, the depth of the export flux and the remineralization factor.
 
-Using different remineralization factors (fixed, local or regional), data sources (model data or empirical), export flux (model data from @Henson2012-ck or @DeVries2017-wu) export depths (100 m or base of EZ), we computed 7 distinct CONVERSE versions which are briefly resumed in the following table.
+Using different remineralization factors (fixed, local or regional), data sources, export flux (model data from @Henson2012-ck or @DeVries2017-wu) export depths (100 m or base of EZ), we computed 7 distinct CONVERSE versions which are briefly resumed in the following table.
 
 ```{r}
 library(tibble)
@@ -405,6 +405,6 @@ Finally, we computed that fluxes above 1000 and 2000 m accounts, respectively, f
 
 # Conclusion
 
-Carbon sequestration is something that you might have heard in the news. This concept is related to the removal of carbon from interaction with the atmosphere. In this work, we have computed carbon sequestration ($\geq$ 100 years) fluxes for seven versions of CONVERSE, a framework that computes sequestration on the entire water column (i.e. **continuous** sequestration). In addition to the BGP, we also added the contribution to carbon sequestration by vertically migrating animals and physical mixing processes, with an estimated contribution of 21-34% to the BCP sequestration flux, even though they do not transport carbon into the deep ocean.
+Carbon sequestration is a concept that you might have heard in the news. It is related to the removal of carbon from interaction with the atmosphere. In this work, we have computed carbon sequestration ($\geq$ 100 years) fluxes for seven versions of CONVERSE, a framework that computes sequestration on the entire water column (i.e. **continuous** sequestration). In addition to the BGP, we also added the contribution to carbon sequestration by vertically migrating animals and physical mixing processes, with an estimated contribution of 21-34% to the BCP global sequestration flux, even though they do not transport carbon into the deep ocean.
 
-Finally, our calculations show that the 100-year carbon sequestration flux by the BCP is 2-3 or 3-6 times larger than what would be estimated using a fixed sequestration depth at, respectively, 1000 and 2000 m. Thus, the concept of continuous vertical sequestration should be applied to further studies to take into account the fact that using a fixed sequestration depth misses between 47 and 88% of the global BCP sequestration flux.
+Finally, our calculations show that the 100-year carbon sequestration flux by the BCP is 2-3 or 3-6 times larger than what would be estimated using a fixed sequestration depth at, respectively, 1000 and 2000 m. Thus, the concept of continuous vertical sequestration should be applied to further studies to take into account the fact that using a fixed sequestration depth misses between 47 and 88% of the global sequestration flux.
