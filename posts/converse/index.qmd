@@ -2,7 +2,7 @@
 title: "CONVERSE"
 description: "Century-scale biological carbon sequestration flux"
 author: "Florian Ricour"
-date: "2023-10-02"
+date: "2023-10-03"
 categories: [academic, biological carbon pump]
 image: "images/synthesis_pump_VF.png"
 
