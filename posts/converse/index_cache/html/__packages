@@ -3,3 +3,7 @@ gt
 gtExtras
 flextable
 latex2exp
+dplyr
+vroom
+ggplot2
+plotly

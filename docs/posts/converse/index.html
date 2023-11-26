@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Florian Ricour">
-<meta name="dcterms.date" content="2023-10-03">
+<meta name="dcterms.date" content="2023-11-27">
 <meta name="description" content="Century-scale biological carbon sequestration flux">
 
 <title>CONVERSE</title>
@@ -199,7 +199,7 @@ div.csl-indent {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 3, 2023</p>
+        <p class="date">November 27, 2023</p>
       </div>
     </div>
     
@@ -218,6 +218,7 @@ div.csl-indent {
   <li><a href="#keywords-to-keep-in-mind" id="toc-keywords-to-keep-in-mind" class="nav-link active" data-scroll-target="#keywords-to-keep-in-mind">Keywords to keep in mind</a></li>
   <li><a href="#a-taste-of-f_100" id="toc-a-taste-of-f_100" class="nav-link" data-scroll-target="#a-taste-of-f_100">A taste of <span class="math inline">\(f_{100}\)</span></a></li>
   <li><a href="#a-new-paradigm-for-the-bcp" id="toc-a-new-paradigm-for-the-bcp" class="nav-link" data-scroll-target="#a-new-paradigm-for-the-bcp">A new paradigm for the BCP</a></li>
+  <li><a href="#continuous-vertical-sequestration-converse" id="toc-continuous-vertical-sequestration-converse" class="nav-link" data-scroll-target="#continuous-vertical-sequestration-converse">Continuous vertical sequestration (CONVERSE)</a></li>
   <li><a href="#a-variety-of-converse-versions" id="toc-a-variety-of-converse-versions" class="nav-link" data-scroll-target="#a-variety-of-converse-versions">A variety of CONVERSE versions</a></li>
   <li><a href="#a-visual-tool-to-compare-the-7-versions" id="toc-a-visual-tool-to-compare-the-7-versions" class="nav-link" data-scroll-target="#a-visual-tool-to-compare-the-7-versions">A visual tool to compare the 7 versions</a></li>
   <li><a href="#converse-in-numbers" id="toc-converse-in-numbers" class="nav-link" data-scroll-target="#converse-in-numbers">CONVERSE in numbers</a></li>
@@ -442,6 +443,53 @@ F_{seq}(\Delta z) = F_{remin}(\Delta z) \times f_{100}(\Delta z)
 <li>The physically mediated particle injection pump (mixing pump), composed of three separate pumps: the mixed layer pump, the eddy subduction pump and the large-scale subduction pump that directly inject DOC below the surface layer (i.e.&nbsp;euphotic zone).</li>
 </ol>
 </section>
+<section id="continuous-vertical-sequestration-converse" class="level1">
+<h1>Continuous vertical sequestration (CONVERSE)</h1>
+<p>While the figure above correctly illustrates the three export pathways of the BCP, it still represents the old paradigm of sequestration, i.e.&nbsp;it only occurs at depth. However, the depth distribution of global median <span class="math inline">\(f_{100}\)</span> values shows that <span class="math inline">\(f_{100}\)</span> increases rapidly from the surface to <span class="math inline">\(\approx\)</span> 0.6 at 1000 m, and progressively up to 1 at the seafloor, indicating that 100% of remineralized DIC is retained for <span class="math inline">\(\ge\)</span> 100 years.</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="166" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 165;"><span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>f100_global_median <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data_converse/f100_global_median_average.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})</span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!--</span> https<span class="op">:</span><span class="co">//community.rstudio.com/t/observable-js-plot-error-in-quarto-document-plot-pointerx-is-not-a-function/172090/3 --&gt;</span></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>Plot <span class="op">=</span> <span class="im">import</span>(<span class="st">"https://esm.sh/@observablehq/plot"</span>)</span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>(f100_global_median<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"f100"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"depth"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"black"</span>})<span class="op">,</span></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">tip</span>(f100_global_median<span class="op">,</span> Plot<span class="op">.</span><span class="fu">pointer</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"f100"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"depth"</span>}))</span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">5600</span><span class="op">,</span> <span class="dv">0</span>]<span class="op">,</span></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"Depth (m)"</span>    </span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<p>As a result of this continuous sequestration by the BCP, we propose the following new conceptual representation of the BCP:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/illustration_press_release.jpg" class="img-fluid figure-img" width="600"></p>
+<figcaption><span style="color: gray;">Revised conceptual representation of the BCP <span class="math inline">\(\textcopyright\)</span> Laetitia Drago.</span></figcaption>
+</figure>
+</div>
+</section>
 <section id="a-variety-of-converse-versions" class="level1">
 <h1>A variety of CONVERSE versions</h1>
 <p>Thus, to estimate the global sequestration flux by the BCP, we needed to take into account the remineralization flux of each export pathway. For this, we used POC and DOC data derived from the model of <span class="citation" data-cites="DeVries2017-wu">DeVries and Weber (<a href="#ref-DeVries2017-wu" role="doc-biblioref">2017</a>)</span> as well as POC fluxes obtained from the best known relationship of <span class="citation" data-cites="Martin1987-um">Martin et al. (<a href="#ref-Martin1987-um" role="doc-biblioref">1987</a>)</span> — Martin’s Law — which describes (empirically) the attenuation of the sinking POC flux with depth.</p>
@@ -450,25 +498,25 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
 \]</span></p>
 <p>where <span class="math inline">\(F_{z}\)</span>, <span class="math inline">\(z_{export}\)</span> and <span class="math inline">\(b\)</span> are, respectively, the estimated POC flux at depth <span class="math inline">\(z\)</span>, the depth of the export flux and the remineralization factor.</p>
 <p>Using different remineralization factors (fixed, local or regional), data sources, export flux (model data from <span class="citation" data-cites="Henson2012-ck">Henson, Sanders, and Madsen (<a href="#ref-Henson2012-ck" role="doc-biblioref">2012</a>)</span> or <span class="citation" data-cites="DeVries2017-wu">DeVries and Weber (<a href="#ref-DeVries2017-wu" role="doc-biblioref">2017</a>)</span>) export depths (100 m or base of EZ), we computed 7 distinct CONVERSE versions which are briefly resumed in the following table.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_24ee542bc8967b52f10e64fb849f9497">
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_49dd719e1a17cb7b03b2ec3b0a93ee3b">
 <div class="cell-output-display">
-<div id="lnnoasdpcl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lnnoasdpcl table {
+<div id="bfxeflrhxc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bfxeflrhxc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lnnoasdpcl thead, #lnnoasdpcl tbody, #lnnoasdpcl tfoot, #lnnoasdpcl tr, #lnnoasdpcl td, #lnnoasdpcl th {
+#bfxeflrhxc thead, #bfxeflrhxc tbody, #bfxeflrhxc tfoot, #bfxeflrhxc tr, #bfxeflrhxc td, #bfxeflrhxc th {
   border-style: none;
 }
 
-#lnnoasdpcl p {
+#bfxeflrhxc p {
   margin: 0;
   padding: 0;
 }
 
-#lnnoasdpcl .gt_table {
+#bfxeflrhxc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -494,12 +542,12 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-left-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_caption {
+#bfxeflrhxc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lnnoasdpcl .gt_title {
+#bfxeflrhxc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -511,7 +559,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-bottom-width: 0;
 }
 
-#lnnoasdpcl .gt_subtitle {
+#bfxeflrhxc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -523,7 +571,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-top-width: 0;
 }
 
-#lnnoasdpcl .gt_heading {
+#bfxeflrhxc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -535,13 +583,13 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-right-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_bottom_border {
+#bfxeflrhxc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_col_headings {
+#bfxeflrhxc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -556,7 +604,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-right-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_col_heading {
+#bfxeflrhxc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -576,7 +624,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   overflow-x: hidden;
 }
 
-#lnnoasdpcl .gt_column_spanner_outer {
+#bfxeflrhxc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -588,15 +636,15 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   padding-right: 4px;
 }
 
-#lnnoasdpcl .gt_column_spanner_outer:first-child {
+#bfxeflrhxc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lnnoasdpcl .gt_column_spanner_outer:last-child {
+#bfxeflrhxc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lnnoasdpcl .gt_column_spanner {
+#bfxeflrhxc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -608,11 +656,11 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   width: 100%;
 }
 
-#lnnoasdpcl .gt_spanner_row {
+#bfxeflrhxc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lnnoasdpcl .gt_group_heading {
+#bfxeflrhxc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -638,7 +686,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   text-align: left;
 }
 
-#lnnoasdpcl .gt_empty_group_heading {
+#bfxeflrhxc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -653,15 +701,15 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   vertical-align: middle;
 }
 
-#lnnoasdpcl .gt_from_md > :first-child {
+#bfxeflrhxc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lnnoasdpcl .gt_from_md > :last-child {
+#bfxeflrhxc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lnnoasdpcl .gt_row {
+#bfxeflrhxc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -680,7 +728,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   overflow-x: hidden;
 }
 
-#lnnoasdpcl .gt_stub {
+#bfxeflrhxc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -693,7 +741,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   padding-right: 5px;
 }
 
-#lnnoasdpcl .gt_stub_row_group {
+#bfxeflrhxc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -707,15 +755,15 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   vertical-align: top;
 }
 
-#lnnoasdpcl .gt_row_group_first td {
+#bfxeflrhxc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lnnoasdpcl .gt_row_group_first th {
+#bfxeflrhxc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lnnoasdpcl .gt_summary_row {
+#bfxeflrhxc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -725,16 +773,16 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   padding-right: 5px;
 }
 
-#lnnoasdpcl .gt_first_summary_row {
+#bfxeflrhxc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_first_summary_row.thick {
+#bfxeflrhxc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lnnoasdpcl .gt_last_summary_row {
+#bfxeflrhxc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -744,7 +792,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-bottom-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_grand_summary_row {
+#bfxeflrhxc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -754,7 +802,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   padding-right: 5px;
 }
 
-#lnnoasdpcl .gt_first_grand_summary_row {
+#bfxeflrhxc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -764,7 +812,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-top-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_last_grand_summary_row_top {
+#bfxeflrhxc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -774,11 +822,11 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-bottom-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_striped {
+#bfxeflrhxc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lnnoasdpcl .gt_table_body {
+#bfxeflrhxc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -787,7 +835,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-bottom-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_footnotes {
+#bfxeflrhxc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -801,7 +849,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-right-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_footnote {
+#bfxeflrhxc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -810,7 +858,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   padding-right: 5px;
 }
 
-#lnnoasdpcl .gt_sourcenotes {
+#bfxeflrhxc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -824,7 +872,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   border-right-color: #D3D3D3;
 }
 
-#lnnoasdpcl .gt_sourcenote {
+#bfxeflrhxc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -832,63 +880,63 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
   padding-right: 5px;
 }
 
-#lnnoasdpcl .gt_left {
+#bfxeflrhxc .gt_left {
   text-align: left;
 }
 
-#lnnoasdpcl .gt_center {
+#bfxeflrhxc .gt_center {
   text-align: center;
 }
 
-#lnnoasdpcl .gt_right {
+#bfxeflrhxc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lnnoasdpcl .gt_font_normal {
+#bfxeflrhxc .gt_font_normal {
   font-weight: normal;
 }
 
-#lnnoasdpcl .gt_font_bold {
+#bfxeflrhxc .gt_font_bold {
   font-weight: bold;
 }
 
-#lnnoasdpcl .gt_font_italic {
+#bfxeflrhxc .gt_font_italic {
   font-style: italic;
 }
 
-#lnnoasdpcl .gt_super {
+#bfxeflrhxc .gt_super {
   font-size: 65%;
 }
 
-#lnnoasdpcl .gt_footnote_marks {
+#bfxeflrhxc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lnnoasdpcl .gt_asterisk {
+#bfxeflrhxc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lnnoasdpcl .gt_indent_1 {
+#bfxeflrhxc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lnnoasdpcl .gt_indent_2 {
+#bfxeflrhxc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lnnoasdpcl .gt_indent_3 {
+#bfxeflrhxc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lnnoasdpcl .gt_indent_4 {
+#bfxeflrhxc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lnnoasdpcl .gt_indent_5 {
+#bfxeflrhxc .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -988,121 +1036,50 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
 <li>POC sequestration fluxes at 1000 m (i.e.&nbsp;fixed sequestration reference depth)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="227" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 226;"><span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>viewof rotate2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>([</span>
-<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>  Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">180</span><span class="op">,</span> <span class="dv">180</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"longitude"</span>})<span class="op">,</span></span>
-<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>  Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">90</span><span class="op">,</span> <span class="dv">90</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"latitude"</span>})<span class="op">,</span></span>
-<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>viewof max_value2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"max colorbar"</span>})</span>
-<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>maps <span class="op">=</span> [</span>
-<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"POC export 100 m (Henson et al., 2012)"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FexpH"</span>}<span class="op">,</span></span>
-<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"POC export 100 m (DeVries et al., 2017)"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FexpT"</span>}<span class="op">,</span></span>
-<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"POC export EZ base (DeVries et al., 2017)"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FexpZeu"</span>}<span class="op">,</span></span>
-<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP - C1/C6/C7"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC_H_100m_martin"</span>}<span class="op">,</span></span>
-<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP - C2"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC_H_100m_henson"</span>}<span class="op">,</span></span>
-<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP - C3"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC_H_100m_guidi"</span>}<span class="op">,</span></span>
-<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP - C4"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC_ST_Zeu"</span>}<span class="op">,</span></span>
-<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP - C5"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC_ST_100m"</span>}<span class="op">,</span></span>
-<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing - C1/C2/C3"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqDOC_H_100m_martin"</span>}<span class="op">,</span></span>
-<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing - C4"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqDOC_ST_Zeu"</span>}<span class="op">,</span></span>
-<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing - C5"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqDOC_ST_100m"</span>}<span class="op">,</span></span>
-<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing - C6"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqDOC_C6"</span>}<span class="op">,</span></span>
-<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing - C7"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqDOC_H_100m_C7"</span>}<span class="op">,</span></span>
-<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Migrant - C1/C2/C3/C6/C7"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqMigrD_H_100m_martin"</span>}<span class="op">,</span></span>
-<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Migrant - C4/C5"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqMigrD_ST_Zeu"</span>}<span class="op">,</span></span>
-<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C1"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_H_100m_martin"</span>}<span class="op">,</span></span>
-<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C2"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_H_100m_henson"</span>}<span class="op">,</span></span>
-<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C3"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_H_100m_guidi"</span>}<span class="op">,</span></span>
-<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C4"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_ST_Zeu"</span>}<span class="op">,</span></span>
-<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C5"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_ST_100m"</span>}<span class="op">,</span></span>
-<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C6"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_H_100m_C6"</span>}<span class="op">,</span></span>
-<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C7"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_H_100m_C7"</span>}<span class="op">,</span></span>
-<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fseq@1000 m - C1/C7"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC1000m_martin"</span>}<span class="op">,</span></span>
-<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fseq@1000 m - C2"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC1000m_henson"</span>}<span class="op">,</span></span>
-<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fseq@1000 m - C3"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC1000m_guidi"</span>}<span class="op">,</span></span>
-<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fseq@1000 m - C4/C5"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC1000m_C4"</span>}<span class="op">,</span></span>
-<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fseq@1000 m - C6"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC1000m_C6"</span>}<span class="op">,</span></span>
-<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>viewof left_data <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
-<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a>  maps<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"left data"</span><span class="op">,</span> <span class="dt">format</span><span class="op">:</span> x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">label</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> maps<span class="op">.</span><span class="fu">find</span>(y <span class="kw">=&gt;</span> y<span class="op">.</span><span class="at">label</span> <span class="op">==</span> <span class="st">"POC export 100 m (Henson et al., 2012)"</span>)}</span>
-<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
-<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>viewof right_data <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
-<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>  maps<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"right data"</span><span class="op">,</span> <span class="dt">format</span><span class="op">:</span> x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">label</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> maps<span class="op">.</span><span class="fu">find</span>(y <span class="kw">=&gt;</span> y<span class="op">.</span><span class="at">label</span> <span class="op">==</span> <span class="st">"POC export 100 m (DeVries et al., 2017)"</span>)}</span>
-<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-3" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-4" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-5" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="277" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 276;"><span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a>data_selected_left <span class="op">=</span> d3<span class="op">.</span><span class="fu">json</span>(<span class="vs">`data_converse/</span><span class="sc">${</span>left_data<span class="op">.</span><span class="at">value</span><span class="sc">}</span><span class="vs">.geojson`</span>)<span class="op">.</span><span class="fu">then</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">features</span><span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> {</span>
-<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> c <span class="op">=</span> d3<span class="op">.</span><span class="fu">geoCentroid</span>(f)<span class="op">;</span></span>
-<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {<span class="dt">value</span><span class="op">:</span> f<span class="op">.</span><span class="at">properties</span><span class="op">.</span><span class="at">value</span><span class="op">,</span> <span class="dt">longitude</span><span class="op">:</span> c[<span class="dv">0</span>]<span class="op">,</span> <span class="dt">latitude</span><span class="op">:</span> c[<span class="dv">1</span>]}<span class="op">;</span></span>
-<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a>}))</span>
-<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>  <span class="dt">projection</span><span class="op">:</span> {<span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span> <span class="dt">type</span><span class="op">:</span> <span class="st">"orthographic"</span><span class="op">,</span> <span class="dt">rotate</span><span class="op">:</span> rotate2}<span class="op">,</span></span>
-<span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span> <span class="dt">projection</span><span class="op">:</span> {<span class="dt">type</span><span class="op">:</span> <span class="st">"orthographic"</span><span class="op">,</span> <span class="dt">rotate</span><span class="op">:</span> [<span class="op">-</span>longitude<span class="op">,</span> <span class="op">-</span>latitude]<span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> circle}<span class="op">,</span> <span class="op">--&gt;</span></span>
-<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
-<span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a>    <span class="dt">scheme</span><span class="op">:</span> <span class="st">"BuPu"</span><span class="op">,</span></span>
-<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> max_value2]<span class="op">,</span></span>
-<span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"carbon flux (mg C m-2 year-1)"</span></span>
-<span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">raster</span>(data_selected_left<span class="op">,</span> {</span>
-<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">"value"</span><span class="op">,</span></span>
-<span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">180</span><span class="op">,</span></span>
-<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">91</span><span class="op">,</span></span>
-<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x1</span><span class="op">:</span> <span class="op">-</span><span class="dv">180</span><span class="op">,</span></span>
-<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y1</span><span class="op">:</span> <span class="op">-</span><span class="dv">90</span><span class="op">,</span></span>
-<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x2</span><span class="op">:</span> <span class="dv">180</span><span class="op">,</span></span>
-<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y2</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span></span>
-<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a>    <span class="dt">clip</span><span class="op">:</span> <span class="st">"sphere"</span><span class="op">,</span></span>
-<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a>    <span class="dt">interpolate</span><span class="op">:</span> <span class="st">"barycentric"</span><span class="op">,</span></span>
-<span id="cb3-302"><a href="#cb3-302" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pointerEvents</span><span class="op">:</span> <span class="st">"auto"</span><span class="op">,</span></span>
-<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a>    <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a>})<span class="op">,</span></span>
-<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">geo</span>(land<span class="op">,</span> {<span class="dt">fill</span><span class="op">:</span> <span class="st">"currentColor"</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="dv">1</span>})<span class="op">,</span></span>
-<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">sphere</span>()<span class="op">,</span></span>
-<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="251" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 250;"><span id="cb3-251"><a href="#cb3-251" aria-hidden="true" tabindex="-1"></a>viewof rotate2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>([</span>
+<span id="cb3-252"><a href="#cb3-252" aria-hidden="true" tabindex="-1"></a>  Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">180</span><span class="op">,</span> <span class="dv">180</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"longitude"</span>})<span class="op">,</span></span>
+<span id="cb3-253"><a href="#cb3-253" aria-hidden="true" tabindex="-1"></a>  Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">90</span><span class="op">,</span> <span class="dv">90</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"latitude"</span>})<span class="op">,</span></span>
+<span id="cb3-254"><a href="#cb3-254" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a>viewof max_value2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"max colorbar"</span>})</span>
+<span id="cb3-257"><a href="#cb3-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a>maps <span class="op">=</span> [</span>
+<span id="cb3-259"><a href="#cb3-259" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"POC export 100 m (Henson et al., 2012)"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FexpH"</span>}<span class="op">,</span></span>
+<span id="cb3-260"><a href="#cb3-260" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"POC export 100 m (DeVries et al., 2017)"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FexpT"</span>}<span class="op">,</span></span>
+<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"POC export EZ base (DeVries et al., 2017)"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FexpZeu"</span>}<span class="op">,</span></span>
+<span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP - C1/C6/C7"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC_H_100m_martin"</span>}<span class="op">,</span></span>
+<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP - C2"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC_H_100m_henson"</span>}<span class="op">,</span></span>
+<span id="cb3-264"><a href="#cb3-264" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP - C3"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC_H_100m_guidi"</span>}<span class="op">,</span></span>
+<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP - C4"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC_ST_Zeu"</span>}<span class="op">,</span></span>
+<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP - C5"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC_ST_100m"</span>}<span class="op">,</span></span>
+<span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing - C1/C2/C3"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqDOC_H_100m_martin"</span>}<span class="op">,</span></span>
+<span id="cb3-268"><a href="#cb3-268" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing - C4"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqDOC_ST_Zeu"</span>}<span class="op">,</span></span>
+<span id="cb3-269"><a href="#cb3-269" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing - C5"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqDOC_ST_100m"</span>}<span class="op">,</span></span>
+<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing - C6"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqDOC_C6"</span>}<span class="op">,</span></span>
+<span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing - C7"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqDOC_H_100m_C7"</span>}<span class="op">,</span></span>
+<span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Migrant - C1/C2/C3/C6/C7"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqMigrD_H_100m_martin"</span>}<span class="op">,</span></span>
+<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Migrant - C4/C5"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqMigrD_ST_Zeu"</span>}<span class="op">,</span></span>
+<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C1"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_H_100m_martin"</span>}<span class="op">,</span></span>
+<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C2"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_H_100m_henson"</span>}<span class="op">,</span></span>
+<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C3"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_H_100m_guidi"</span>}<span class="op">,</span></span>
+<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C4"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_ST_Zeu"</span>}<span class="op">,</span></span>
+<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C5"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_ST_100m"</span>}<span class="op">,</span></span>
+<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C6"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_H_100m_C6"</span>}<span class="op">,</span></span>
+<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP - C7"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqBCPs_H_100m_C7"</span>}<span class="op">,</span></span>
+<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fseq@1000 m - C1/C7"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC1000m_martin"</span>}<span class="op">,</span></span>
+<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fseq@1000 m - C2"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC1000m_henson"</span>}<span class="op">,</span></span>
+<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fseq@1000 m - C3"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC1000m_guidi"</span>}<span class="op">,</span></span>
+<span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fseq@1000 m - C4/C5"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC1000m_C4"</span>}<span class="op">,</span></span>
+<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Fseq@1000 m - C6"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"FseqPOC1000m_C6"</span>}<span class="op">,</span></span>
+<span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a>viewof left_data <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
+<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a>  maps<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"left data"</span><span class="op">,</span> <span class="dt">format</span><span class="op">:</span> x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">label</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> maps<span class="op">.</span><span class="fu">find</span>(y <span class="kw">=&gt;</span> y<span class="op">.</span><span class="at">label</span> <span class="op">==</span> <span class="st">"POC export 100 m (Henson et al., 2012)"</span>)}</span>
+<span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
+<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a>viewof right_data <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
+<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a>  maps<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"right data"</span><span class="op">,</span> <span class="dt">format</span><span class="op">:</span> x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">label</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> maps<span class="op">.</span><span class="fu">find</span>(y <span class="kw">=&gt;</span> y<span class="op">.</span><span class="at">label</span> <span class="op">==</span> <span class="st">"POC export 100 m (DeVries et al., 2017)"</span>)}</span>
+<span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -1112,46 +1089,68 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-3-2" data-nodetype="expression">
+<div id="ojs-cell-3-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-5" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="315" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 314;"><span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a>data_selected_right <span class="op">=</span> d3<span class="op">.</span><span class="fu">json</span>(<span class="vs">`data_converse/</span><span class="sc">${</span>right_data<span class="op">.</span><span class="at">value</span><span class="sc">}</span><span class="vs">.geojson`</span>)<span class="op">.</span><span class="fu">then</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">features</span><span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> {</span>
-<span id="cb4-316"><a href="#cb4-316" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> c <span class="op">=</span> d3<span class="op">.</span><span class="fu">geoCentroid</span>(f)<span class="op">;</span></span>
-<span id="cb4-317"><a href="#cb4-317" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {<span class="dt">value</span><span class="op">:</span> f<span class="op">.</span><span class="at">properties</span><span class="op">.</span><span class="at">value</span><span class="op">,</span> <span class="dt">longitude</span><span class="op">:</span> c[<span class="dv">0</span>]<span class="op">,</span> <span class="dt">latitude</span><span class="op">:</span> c[<span class="dv">1</span>]}<span class="op">;</span></span>
-<span id="cb4-318"><a href="#cb4-318" aria-hidden="true" tabindex="-1"></a>}))</span>
-<span id="cb4-319"><a href="#cb4-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-320"><a href="#cb4-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-321"><a href="#cb4-321" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb4-322"><a href="#cb4-322" aria-hidden="true" tabindex="-1"></a>  <span class="dt">projection</span><span class="op">:</span> {<span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span> <span class="dt">type</span><span class="op">:</span> <span class="st">"orthographic"</span><span class="op">,</span> <span class="dt">rotate</span><span class="op">:</span> rotate2}<span class="op">,</span></span>
-<span id="cb4-323"><a href="#cb4-323" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
-<span id="cb4-324"><a href="#cb4-324" aria-hidden="true" tabindex="-1"></a>    <span class="dt">scheme</span><span class="op">:</span> <span class="st">"BuPu"</span><span class="op">,</span></span>
-<span id="cb4-325"><a href="#cb4-325" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> max_value2]<span class="op">,</span></span>
-<span id="cb4-326"><a href="#cb4-326" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-327"><a href="#cb4-327" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"carbon flux (mg C m-2 year-1)"</span></span>
-<span id="cb4-328"><a href="#cb4-328" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb4-329"><a href="#cb4-329" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb4-330"><a href="#cb4-330" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">raster</span>(data_selected_right<span class="op">,</span> {</span>
-<span id="cb4-331"><a href="#cb4-331" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">"value"</span><span class="op">,</span></span>
-<span id="cb4-332"><a href="#cb4-332" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">180</span><span class="op">,</span></span>
-<span id="cb4-333"><a href="#cb4-333" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">91</span><span class="op">,</span></span>
-<span id="cb4-334"><a href="#cb4-334" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x1</span><span class="op">:</span> <span class="op">-</span><span class="dv">180</span><span class="op">,</span></span>
-<span id="cb4-335"><a href="#cb4-335" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y1</span><span class="op">:</span> <span class="op">-</span><span class="dv">90</span><span class="op">,</span></span>
-<span id="cb4-336"><a href="#cb4-336" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x2</span><span class="op">:</span> <span class="dv">180</span><span class="op">,</span></span>
-<span id="cb4-337"><a href="#cb4-337" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y2</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span></span>
-<span id="cb4-338"><a href="#cb4-338" aria-hidden="true" tabindex="-1"></a>    <span class="dt">clip</span><span class="op">:</span> <span class="st">"sphere"</span><span class="op">,</span></span>
-<span id="cb4-339"><a href="#cb4-339" aria-hidden="true" tabindex="-1"></a>    <span class="dt">interpolate</span><span class="op">:</span> <span class="st">"barycentric"</span><span class="op">,</span></span>
-<span id="cb4-340"><a href="#cb4-340" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pointerEvents</span><span class="op">:</span> <span class="st">"auto"</span><span class="op">,</span></span>
-<span id="cb4-341"><a href="#cb4-341" aria-hidden="true" tabindex="-1"></a>    <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb4-342"><a href="#cb4-342" aria-hidden="true" tabindex="-1"></a>})<span class="op">,</span></span>
-<span id="cb4-343"><a href="#cb4-343" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">geo</span>(land<span class="op">,</span> {<span class="dt">fill</span><span class="op">:</span> <span class="st">"currentColor"</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="dv">1</span>})<span class="op">,</span></span>
-<span id="cb4-344"><a href="#cb4-344" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">sphere</span>()<span class="op">,</span></span>
-<span id="cb4-345"><a href="#cb4-345" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb4-346"><a href="#cb4-346" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="301" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 300;"><span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a>data_selected_left <span class="op">=</span> d3<span class="op">.</span><span class="fu">json</span>(<span class="vs">`data_converse/</span><span class="sc">${</span>left_data<span class="op">.</span><span class="at">value</span><span class="sc">}</span><span class="vs">.geojson`</span>)<span class="op">.</span><span class="fu">then</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">features</span><span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> {</span>
+<span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> c <span class="op">=</span> d3<span class="op">.</span><span class="fu">geoCentroid</span>(f)<span class="op">;</span></span>
+<span id="cb4-303"><a href="#cb4-303" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {<span class="dt">value</span><span class="op">:</span> f<span class="op">.</span><span class="at">properties</span><span class="op">.</span><span class="at">value</span><span class="op">,</span> <span class="dt">longitude</span><span class="op">:</span> c[<span class="dv">0</span>]<span class="op">,</span> <span class="dt">latitude</span><span class="op">:</span> c[<span class="dv">1</span>]}<span class="op">;</span></span>
+<span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a>}))</span>
+<span id="cb4-305"><a href="#cb4-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-306"><a href="#cb4-306" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb4-307"><a href="#cb4-307" aria-hidden="true" tabindex="-1"></a>  <span class="dt">projection</span><span class="op">:</span> {<span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span> <span class="dt">type</span><span class="op">:</span> <span class="st">"orthographic"</span><span class="op">,</span> <span class="dt">rotate</span><span class="op">:</span> rotate2}<span class="op">,</span></span>
+<span id="cb4-308"><a href="#cb4-308" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span> <span class="dt">projection</span><span class="op">:</span> {<span class="dt">type</span><span class="op">:</span> <span class="st">"orthographic"</span><span class="op">,</span> <span class="dt">rotate</span><span class="op">:</span> [<span class="op">-</span>longitude<span class="op">,</span> <span class="op">-</span>latitude]<span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> circle}<span class="op">,</span> <span class="op">--&gt;</span></span>
+<span id="cb4-309"><a href="#cb4-309" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
+<span id="cb4-310"><a href="#cb4-310" aria-hidden="true" tabindex="-1"></a>    <span class="dt">scheme</span><span class="op">:</span> <span class="st">"BuPu"</span><span class="op">,</span></span>
+<span id="cb4-311"><a href="#cb4-311" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> max_value2]<span class="op">,</span></span>
+<span id="cb4-312"><a href="#cb4-312" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-313"><a href="#cb4-313" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"carbon flux (mg C m-2 year-1)"</span></span>
+<span id="cb4-314"><a href="#cb4-314" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb4-316"><a href="#cb4-316" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">raster</span>(data_selected_left<span class="op">,</span> {</span>
+<span id="cb4-317"><a href="#cb4-317" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">"value"</span><span class="op">,</span></span>
+<span id="cb4-318"><a href="#cb4-318" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">180</span><span class="op">,</span></span>
+<span id="cb4-319"><a href="#cb4-319" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">91</span><span class="op">,</span></span>
+<span id="cb4-320"><a href="#cb4-320" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x1</span><span class="op">:</span> <span class="op">-</span><span class="dv">180</span><span class="op">,</span></span>
+<span id="cb4-321"><a href="#cb4-321" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y1</span><span class="op">:</span> <span class="op">-</span><span class="dv">90</span><span class="op">,</span></span>
+<span id="cb4-322"><a href="#cb4-322" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x2</span><span class="op">:</span> <span class="dv">180</span><span class="op">,</span></span>
+<span id="cb4-323"><a href="#cb4-323" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y2</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span></span>
+<span id="cb4-324"><a href="#cb4-324" aria-hidden="true" tabindex="-1"></a>    <span class="dt">clip</span><span class="op">:</span> <span class="st">"sphere"</span><span class="op">,</span></span>
+<span id="cb4-325"><a href="#cb4-325" aria-hidden="true" tabindex="-1"></a>    <span class="dt">interpolate</span><span class="op">:</span> <span class="st">"barycentric"</span><span class="op">,</span></span>
+<span id="cb4-326"><a href="#cb4-326" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pointerEvents</span><span class="op">:</span> <span class="st">"auto"</span><span class="op">,</span></span>
+<span id="cb4-327"><a href="#cb4-327" aria-hidden="true" tabindex="-1"></a>    <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb4-328"><a href="#cb4-328" aria-hidden="true" tabindex="-1"></a>})<span class="op">,</span></span>
+<span id="cb4-329"><a href="#cb4-329" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">geo</span>(land<span class="op">,</span> {<span class="dt">fill</span><span class="op">:</span> <span class="st">"currentColor"</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="dv">1</span>})<span class="op">,</span></span>
+<span id="cb4-330"><a href="#cb4-330" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">sphere</span>()<span class="op">,</span></span>
+<span id="cb4-331"><a href="#cb4-331" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb4-332"><a href="#cb4-332" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-4-1" data-nodetype="declaration">
@@ -1167,54 +1166,40 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
 </div>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="converse-in-numbers" class="level1">
-<h1>CONVERSE in numbers</h1>
-<p>The previous section highlights regional disparities between CONVERSE versions for each carbon pump. Now, let’s focus on the global water-column sequestration fluxes.</p>
-<p>In the figure below, you can compare all CONVERSE versions for the BCP and their export pathways (i.e.&nbsp;BGP, mixing and migrant pumps) as well as the global sinking POC fluxes at 1000 m and 2000 m. We also computed the ratio between the BCP global sequestration fluxes and the global POC fluxes at 1000 m and 2000 m.</p>
+</div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="358" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 357;"><span id="cb5-358"><a href="#cb5-358" aria-hidden="true" tabindex="-1"></a>converse_version <span class="op">=</span> [</span>
-<span id="cb5-359"><a href="#cb5-359" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C1"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">0.63</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">0.88</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.13</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.11</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">0.38</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.19</span><span class="op">,</span></span>
-<span id="cb5-360"><a href="#cb5-360" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.3</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">4.6</span>}<span class="op">,</span></span>
-<span id="cb5-361"><a href="#cb5-361" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C2"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">0.92</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">1.16</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.13</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.11</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">0.68</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.42</span><span class="op">,</span></span>
-<span id="cb5-362"><a href="#cb5-362" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">1.7</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">2.8</span>}<span class="op">,</span></span>
-<span id="cb5-363"><a href="#cb5-363" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C3"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">0.71</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">0.95</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.13</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.11</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">0.47</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.26</span><span class="op">,</span></span>
-<span id="cb5-364"><a href="#cb5-364" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.0</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">3.7</span>}<span class="op">,</span></span>
-<span id="cb5-365"><a href="#cb5-365" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C4"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">1.89</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">2.61</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.45</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.26</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">1.13</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.47</span><span class="op">,</span></span>
-<span id="cb5-366"><a href="#cb5-366" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.3</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">5.6</span>}<span class="op">,</span></span>
-<span id="cb5-367"><a href="#cb5-367" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C5"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">1.86</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">2.44</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.32</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.26</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">1.13</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.47</span><span class="op">,</span></span>
-<span id="cb5-368"><a href="#cb5-368" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.2</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">5.2</span>}<span class="op">,</span></span>
-<span id="cb5-369"><a href="#cb5-369" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C6"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">0.76</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">1.00</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.13</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.11</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">0.46</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.19</span><span class="op">,</span></span>
-<span id="cb5-370"><a href="#cb5-370" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.2</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">5.3</span>}<span class="op">,</span></span>
-<span id="cb5-371"><a href="#cb5-371" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C7"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">0.63</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">0.96</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.22</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.11</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">0.38</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.19</span><span class="op">,</span></span>
-<span id="cb5-372"><a href="#cb5-372" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.5</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">5.1</span>}<span class="op">,</span></span>
-<span id="cb5-373"><a href="#cb5-373" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
-<span id="cb5-374"><a href="#cb5-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-375"><a href="#cb5-375" aria-hidden="true" tabindex="-1"></a>viewof select_pump <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
-<span id="cb5-376"><a href="#cb5-376" aria-hidden="true" tabindex="-1"></a>  [</span>
-<span id="cb5-377"><a href="#cb5-377" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"BGP"</span>}<span class="op">,</span></span>
-<span id="cb5-378"><a href="#cb5-378" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"Mixing"</span>}<span class="op">,</span></span>
-<span id="cb5-379"><a href="#cb5-379" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"Migrant (diel)"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"Migrant"</span>}<span class="op">,</span></span>
-<span id="cb5-380"><a href="#cb5-380" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"BCP"</span>}<span class="op">,</span></span>
-<span id="cb5-381"><a href="#cb5-381" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"POC flux at 1000 m"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"POC_1000m"</span>}<span class="op">,</span></span>
-<span id="cb5-382"><a href="#cb5-382" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"POC flux at 2000 m"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"POC_2000m"</span>}<span class="op">,</span></span>
-<span id="cb5-383"><a href="#cb5-383" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"Ratio BCP over POC flux at 1000 m"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"ratio_1000m"</span>}<span class="op">,</span></span>
-<span id="cb5-384"><a href="#cb5-384" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"Ratio BCP over POC flux at 2000 m"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"ratio_2000m"</span>}</span>
-<span id="cb5-385"><a href="#cb5-385" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
-<span id="cb5-386"><a href="#cb5-386" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`Global F&lt;sub&gt;seq&lt;/sub&gt; &lt;br&gt;(Pg C year&lt;sup&gt;-1&lt;/sup&gt;)`</span><span class="op">,</span> <span class="dt">format</span><span class="op">:</span> x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">label</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> maps<span class="op">.</span><span class="fu">find</span>(y <span class="kw">=&gt;</span> y<span class="op">.</span><span class="at">label</span> <span class="op">==</span> <span class="st">"BGP"</span>)}</span>
-<span id="cb5-387"><a href="#cb5-387" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
-<span id="cb5-388"><a href="#cb5-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-389"><a href="#cb5-389" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb5-390"><a href="#cb5-390" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span> <span class="dt">caption</span><span class="op">:</span> <span class="st">"Histogram of CONVERSE values based on selected pump"</span><span class="op">,</span> <span class="op">--&gt;</span></span>
-<span id="cb5-391"><a href="#cb5-391" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb5-392"><a href="#cb5-392" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb5-393"><a href="#cb5-393" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barY</span>(converse_version<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"version"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> select_pump<span class="op">.</span><span class="at">value</span>})<span class="op">,</span></span>
-<span id="cb5-394"><a href="#cb5-394" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>(converse_version<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"version"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> select_pump<span class="op">.</span><span class="at">value</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> select_pump<span class="op">,</span> <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"middle"</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"white"</span>})<span class="op">,</span></span>
-<span id="cb5-395"><a href="#cb5-395" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
-<span id="cb5-396"><a href="#cb5-396" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb5-397"><a href="#cb5-397" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="339" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 338;"><span id="cb5-339"><a href="#cb5-339" aria-hidden="true" tabindex="-1"></a>data_selected_right <span class="op">=</span> d3<span class="op">.</span><span class="fu">json</span>(<span class="vs">`data_converse/</span><span class="sc">${</span>right_data<span class="op">.</span><span class="at">value</span><span class="sc">}</span><span class="vs">.geojson`</span>)<span class="op">.</span><span class="fu">then</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">features</span><span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> {</span>
+<span id="cb5-340"><a href="#cb5-340" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> c <span class="op">=</span> d3<span class="op">.</span><span class="fu">geoCentroid</span>(f)<span class="op">;</span></span>
+<span id="cb5-341"><a href="#cb5-341" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {<span class="dt">value</span><span class="op">:</span> f<span class="op">.</span><span class="at">properties</span><span class="op">.</span><span class="at">value</span><span class="op">,</span> <span class="dt">longitude</span><span class="op">:</span> c[<span class="dv">0</span>]<span class="op">,</span> <span class="dt">latitude</span><span class="op">:</span> c[<span class="dv">1</span>]}<span class="op">;</span></span>
+<span id="cb5-342"><a href="#cb5-342" aria-hidden="true" tabindex="-1"></a>}))</span>
+<span id="cb5-343"><a href="#cb5-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-344"><a href="#cb5-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-345"><a href="#cb5-345" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb5-346"><a href="#cb5-346" aria-hidden="true" tabindex="-1"></a>  <span class="dt">projection</span><span class="op">:</span> {<span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span> <span class="dt">type</span><span class="op">:</span> <span class="st">"orthographic"</span><span class="op">,</span> <span class="dt">rotate</span><span class="op">:</span> rotate2}<span class="op">,</span></span>
+<span id="cb5-347"><a href="#cb5-347" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
+<span id="cb5-348"><a href="#cb5-348" aria-hidden="true" tabindex="-1"></a>    <span class="dt">scheme</span><span class="op">:</span> <span class="st">"BuPu"</span><span class="op">,</span></span>
+<span id="cb5-349"><a href="#cb5-349" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> max_value2]<span class="op">,</span></span>
+<span id="cb5-350"><a href="#cb5-350" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb5-351"><a href="#cb5-351" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"carbon flux (mg C m-2 year-1)"</span></span>
+<span id="cb5-352"><a href="#cb5-352" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb5-353"><a href="#cb5-353" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb5-354"><a href="#cb5-354" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">raster</span>(data_selected_right<span class="op">,</span> {</span>
+<span id="cb5-355"><a href="#cb5-355" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fill</span><span class="op">:</span> <span class="st">"value"</span><span class="op">,</span></span>
+<span id="cb5-356"><a href="#cb5-356" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">180</span><span class="op">,</span></span>
+<span id="cb5-357"><a href="#cb5-357" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">91</span><span class="op">,</span></span>
+<span id="cb5-358"><a href="#cb5-358" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x1</span><span class="op">:</span> <span class="op">-</span><span class="dv">180</span><span class="op">,</span></span>
+<span id="cb5-359"><a href="#cb5-359" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y1</span><span class="op">:</span> <span class="op">-</span><span class="dv">90</span><span class="op">,</span></span>
+<span id="cb5-360"><a href="#cb5-360" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x2</span><span class="op">:</span> <span class="dv">180</span><span class="op">,</span></span>
+<span id="cb5-361"><a href="#cb5-361" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y2</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span></span>
+<span id="cb5-362"><a href="#cb5-362" aria-hidden="true" tabindex="-1"></a>    <span class="dt">clip</span><span class="op">:</span> <span class="st">"sphere"</span><span class="op">,</span></span>
+<span id="cb5-363"><a href="#cb5-363" aria-hidden="true" tabindex="-1"></a>    <span class="dt">interpolate</span><span class="op">:</span> <span class="st">"barycentric"</span><span class="op">,</span></span>
+<span id="cb5-364"><a href="#cb5-364" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pointerEvents</span><span class="op">:</span> <span class="st">"auto"</span><span class="op">,</span></span>
+<span id="cb5-365"><a href="#cb5-365" aria-hidden="true" tabindex="-1"></a>    <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb5-366"><a href="#cb5-366" aria-hidden="true" tabindex="-1"></a>})<span class="op">,</span></span>
+<span id="cb5-367"><a href="#cb5-367" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">geo</span>(land<span class="op">,</span> {<span class="dt">fill</span><span class="op">:</span> <span class="st">"currentColor"</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="dv">1</span>})<span class="op">,</span></span>
+<span id="cb5-368"><a href="#cb5-368" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">sphere</span>()<span class="op">,</span></span>
+<span id="cb5-369"><a href="#cb5-369" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb5-370"><a href="#cb5-370" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-5-1" data-nodetype="declaration">
@@ -1224,14 +1209,77 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-5-2" data-nodetype="declaration">
+<div id="ojs-cell-5-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="converse-in-numbers" class="level1">
+<h1>CONVERSE in numbers</h1>
+<p>The previous section highlights regional disparities between CONVERSE versions for each carbon pump. Now, let’s focus on the global water-column sequestration fluxes.</p>
+<p>In the figure below, you can compare all CONVERSE versions for the BCP and their export pathways (i.e.&nbsp;BGP, mixing and migrant pumps) as well as the global sinking POC fluxes at 1000 m and 2000 m. We also computed the ratio between the BCP global sequestration fluxes and the global POC fluxes at 1000 m and 2000 m.</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="382" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 381;"><span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a>converse_version <span class="op">=</span> [</span>
+<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C1"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">0.63</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">0.88</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.13</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.11</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">0.38</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.19</span><span class="op">,</span></span>
+<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.3</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">4.6</span>}<span class="op">,</span></span>
+<span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C2"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">0.92</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">1.16</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.13</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.11</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">0.68</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.42</span><span class="op">,</span></span>
+<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">1.7</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">2.8</span>}<span class="op">,</span></span>
+<span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C3"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">0.71</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">0.95</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.13</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.11</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">0.47</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.26</span><span class="op">,</span></span>
+<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.0</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">3.7</span>}<span class="op">,</span></span>
+<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C4"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">1.89</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">2.61</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.45</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.26</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">1.13</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.47</span><span class="op">,</span></span>
+<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.3</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">5.6</span>}<span class="op">,</span></span>
+<span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C5"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">1.86</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">2.44</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.32</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.26</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">1.13</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.47</span><span class="op">,</span></span>
+<span id="cb6-392"><a href="#cb6-392" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.2</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">5.2</span>}<span class="op">,</span></span>
+<span id="cb6-393"><a href="#cb6-393" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C6"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">0.76</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">1.00</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.13</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.11</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">0.46</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.19</span><span class="op">,</span></span>
+<span id="cb6-394"><a href="#cb6-394" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.2</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">5.3</span>}<span class="op">,</span></span>
+<span id="cb6-395"><a href="#cb6-395" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">version</span><span class="op">:</span> <span class="st">"C7"</span><span class="op">,</span> <span class="dt">BGP</span><span class="op">:</span> <span class="fl">0.63</span><span class="op">,</span> <span class="dt">BCP</span><span class="op">:</span> <span class="fl">0.96</span><span class="op">,</span> <span class="dt">Mixing</span><span class="op">:</span> <span class="fl">0.22</span><span class="op">,</span> <span class="dt">Migrant</span><span class="op">:</span> <span class="fl">0.11</span><span class="op">,</span> <span class="dt">POC_1000m</span><span class="op">:</span> <span class="fl">0.38</span><span class="op">,</span> <span class="dt">POC_2000m</span><span class="op">:</span> <span class="fl">0.19</span><span class="op">,</span></span>
+<span id="cb6-396"><a href="#cb6-396" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ratio_1000m</span><span class="op">:</span> <span class="fl">2.5</span><span class="op">,</span> <span class="dt">ratio_2000m</span><span class="op">:</span> <span class="fl">5.1</span>}<span class="op">,</span></span>
+<span id="cb6-397"><a href="#cb6-397" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb6-398"><a href="#cb6-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-399"><a href="#cb6-399" aria-hidden="true" tabindex="-1"></a>viewof select_pump <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
+<span id="cb6-400"><a href="#cb6-400" aria-hidden="true" tabindex="-1"></a>  [</span>
+<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"BGP"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"BGP"</span>}<span class="op">,</span></span>
+<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"Mixing"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"Mixing"</span>}<span class="op">,</span></span>
+<span id="cb6-403"><a href="#cb6-403" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"Migrant (diel)"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"Migrant"</span>}<span class="op">,</span></span>
+<span id="cb6-404"><a href="#cb6-404" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"BCP"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"BCP"</span>}<span class="op">,</span></span>
+<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"POC flux at 1000 m"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"POC_1000m"</span>}<span class="op">,</span></span>
+<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"POC flux at 2000 m"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"POC_2000m"</span>}<span class="op">,</span></span>
+<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"Ratio BCP over POC flux at 1000 m"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"ratio_1000m"</span>}<span class="op">,</span></span>
+<span id="cb6-408"><a href="#cb6-408" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"Ratio BCP over POC flux at 2000 m"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"ratio_2000m"</span>}</span>
+<span id="cb6-409"><a href="#cb6-409" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb6-410"><a href="#cb6-410" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`Global F&lt;sub&gt;seq&lt;/sub&gt; &lt;br&gt;(Pg C year&lt;sup&gt;-1&lt;/sup&gt;)`</span><span class="op">,</span> <span class="dt">format</span><span class="op">:</span> x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">label</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> maps<span class="op">.</span><span class="fu">find</span>(y <span class="kw">=&gt;</span> y<span class="op">.</span><span class="at">label</span> <span class="op">==</span> <span class="st">"BGP"</span>)}</span>
+<span id="cb6-411"><a href="#cb6-411" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
+<span id="cb6-412"><a href="#cb6-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-413"><a href="#cb6-413" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb6-414"><a href="#cb6-414" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span> <span class="dt">caption</span><span class="op">:</span> <span class="st">"Histogram of CONVERSE values based on selected pump"</span><span class="op">,</span> <span class="op">--&gt;</span></span>
+<span id="cb6-415"><a href="#cb6-415" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb6-416"><a href="#cb6-416" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb6-417"><a href="#cb6-417" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barY</span>(converse_version<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"version"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> select_pump<span class="op">.</span><span class="at">value</span>})<span class="op">,</span></span>
+<span id="cb6-418"><a href="#cb6-418" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>(converse_version<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"version"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> select_pump<span class="op">.</span><span class="at">value</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> select_pump<span class="op">,</span> <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"middle"</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"white"</span>})<span class="op">,</span></span>
+<span id="cb6-419"><a href="#cb6-419" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
+<span id="cb6-420"><a href="#cb6-420" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb6-421"><a href="#cb6-421" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-1" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-5-3" data-nodetype="expression">
+<div id="ojs-cell-6-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-3" data-nodetype="expression">
 
 </div>
 </div>
@@ -1271,7 +1319,7 @@ Siegel, David A, Tim DeVries, Scott Doney, and Tom Bell. 2021. <span>“Assessin
 </div>
 </div></section></div></main> <!-- /main -->
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpretLenient","cellName":"ojs-cell-1","inline":false,"source":"\nd3 = require(\"d3@7\")\n\nworld = FileAttachment(\"data_converse/countries-110m.json\").json()\nland = topojson.feature(world, world.objects.land)\n\n<!-- Issue to read the big file from git lfs so hard solution: split the big file into 4 pieces --> \n\n<!-- f100_data = d3.json(\"data_converse/f100_full.geojson\").then(d => d.features.map(f => { -->\n<!--   const c = d3.geoCentroid(f); -->\n<!--   return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]}; -->\n<!-- })) -->\n\nf100_data1 = d3.json(\"data_converse/f100_part1.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data2 = d3.json(\"data_converse/f100_part2.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data3 = d3.json(\"data_converse/f100_part3.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data4 = d3.json(\"data_converse/f100_part4.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data = [...f100_data1, ...f100_data2, ...f100_data3, ...f100_data4];\n\nviewof max_value1 = Inputs.range([0, 1], {step: 0.05, label: \"max colorbar\"})\n\nviewof f100_depth = Inputs.select(\n  [\n    5, 15, 25, 36, 48, 61, 75, 91,\n    109, 130, 153, 179, 209, 242,\n    279, 320, 365, 415, 470, 531,\n    597, 669, 747, 832, 923, 1022,\n    1128, 1241, 1363, 1493, 1631,\n    1778, 1935, 2101, 2277, 2462,\n    2658, 2865, 3083, 3312, 3552,\n    3804, 4068, 4345, 4634, 4937,\n    5253, 5582\n  ],\n  {label: \"depth (m)\", value: 531.0}\n)\n\nf100_filtered = f100_data.filter(data => data.depth == f100_depth);\n\nPlot.plot({\n  projection: {type: \"equal-earth\"},\n  color: {\n    scheme: \"BuPu\",\n    domain: [0, max_value1],\n    legend: true,\n    label: \"f100\"\n  },\n  marks: [\n    Plot.raster(f100_filtered, {\n    fill: \"value\",\n    width: 180,\n    height: 91,\n    x1: -180,\n    y1: -90,\n    x2: 180,\n    y2: 90,\n    clip: \"sphere\",\n    interpolate: \"barycentric\"\n}),\n    Plot.geo(land, {fill: \"currentColor\", fillOpacity: 1}),\n    Plot.sphere(),\n  ]\n})\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-2","inline":false,"source":"\nviewof rotate2 = Inputs.form([\n  Inputs.range([-180, 180], {step: 1, label: \"longitude\"}),\n  Inputs.range([-90, 90], {step: 1, label: \"latitude\"}),\n])\n\nviewof max_value2 = Inputs.range([0, 100], {step: 0.05, label: \"max colorbar\"})\n\nmaps = [\n  {label: \"POC export 100 m (Henson et al., 2012)\", value: \"FexpH\"},\n  {label: \"POC export 100 m (DeVries et al., 2017)\", value: \"FexpT\"},\n  {label: \"POC export EZ base (DeVries et al., 2017)\", value: \"FexpZeu\"},\n  {label: \"BGP - C1/C6/C7\", value: \"FseqPOC_H_100m_martin\"},\n  {label: \"BGP - C2\", value: \"FseqPOC_H_100m_henson\"},\n  {label: \"BGP - C3\", value: \"FseqPOC_H_100m_guidi\"},\n  {label: \"BGP - C4\", value: \"FseqPOC_ST_Zeu\"},\n  {label: \"BGP - C5\", value: \"FseqPOC_ST_100m\"},\n  {label: \"Mixing - C1/C2/C3\", value: \"FseqDOC_H_100m_martin\"},\n  {label: \"Mixing - C4\", value: \"FseqDOC_ST_Zeu\"},\n  {label: \"Mixing - C5\", value: \"FseqDOC_ST_100m\"},\n  {label: \"Mixing - C6\", value: \"FseqDOC_C6\"},\n  {label: \"Mixing - C7\", value: \"FseqDOC_H_100m_C7\"},\n  {label: \"Migrant - C1/C2/C3/C6/C7\", value: \"FseqMigrD_H_100m_martin\"},\n  {label: \"Migrant - C4/C5\", value: \"FseqMigrD_ST_Zeu\"},\n  {label: \"BCP - C1\", value: \"FseqBCPs_H_100m_martin\"},\n  {label: \"BCP - C2\", value: \"FseqBCPs_H_100m_henson\"},\n  {label: \"BCP - C3\", value: \"FseqBCPs_H_100m_guidi\"},\n  {label: \"BCP - C4\", value: \"FseqBCPs_ST_Zeu\"},\n  {label: \"BCP - C5\", value: \"FseqBCPs_ST_100m\"},\n  {label: \"BCP - C6\", value: \"FseqBCPs_H_100m_C6\"},\n  {label: \"BCP - C7\", value: \"FseqBCPs_H_100m_C7\"},\n  {label: \"Fseq@1000 m - C1/C7\", value: \"FseqPOC1000m_martin\"},\n  {label: \"Fseq@1000 m - C2\", value: \"FseqPOC1000m_henson\"},\n  {label: \"Fseq@1000 m - C3\", value: \"FseqPOC1000m_guidi\"},\n  {label: \"Fseq@1000 m - C4/C5\", value: \"FseqPOC1000m_C4\"},\n  {label: \"Fseq@1000 m - C6\", value: \"FseqPOC1000m_C6\"},\n]\n\nviewof left_data = Inputs.select(\n  maps, {label: \"left data\", format: x => x.label, value: maps.find(y => y.label == \"POC export 100 m (Henson et al., 2012)\")}\n);\n\nviewof right_data = Inputs.select(\n  maps, {label: \"right data\", format: x => x.label, value: maps.find(y => y.label == \"POC export 100 m (DeVries et al., 2017)\")}\n);\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-3","inline":false,"source":"\ndata_selected_left = d3.json(`data_converse/${left_data.value}.geojson`).then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, longitude: c[0], latitude: c[1]};\n}))\n\nPlot.plot({\n  projection: {width: 500, height: 500, type: \"orthographic\", rotate: rotate2},\n  <!-- projection: {type: \"orthographic\", rotate: [-longitude, -latitude], domain: circle}, -->\n  color: {\n    scheme: \"BuPu\",\n    domain: [0, max_value2],\n    legend: true,\n    label: \"carbon flux (mg C m-2 year-1)\"\n  },\n  marks: [\n    Plot.raster(data_selected_left, {\n    fill: \"value\",\n    width: 180,\n    height: 91,\n    x1: -180,\n    y1: -90,\n    x2: 180,\n    y2: 90,\n    clip: \"sphere\",\n    interpolate: \"barycentric\",\n    pointerEvents: \"auto\",\n    tip: true\n}),\n    Plot.geo(land, {fill: \"currentColor\", fillOpacity: 1}),\n    Plot.sphere(),\n  ]\n})\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-4","inline":false,"source":"\ndata_selected_right = d3.json(`data_converse/${right_data.value}.geojson`).then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, longitude: c[0], latitude: c[1]};\n}))\n\n\nPlot.plot({\n  projection: {width: 500, height: 500, type: \"orthographic\", rotate: rotate2},\n  color: {\n    scheme: \"BuPu\",\n    domain: [0, max_value2],\n    legend: true,\n    label: \"carbon flux (mg C m-2 year-1)\"\n  },\n  marks: [\n    Plot.raster(data_selected_right, {\n    fill: \"value\",\n    width: 180,\n    height: 91,\n    x1: -180,\n    y1: -90,\n    x2: 180,\n    y2: 90,\n    clip: \"sphere\",\n    interpolate: \"barycentric\",\n    pointerEvents: \"auto\",\n    tip: true\n}),\n    Plot.geo(land, {fill: \"currentColor\", fillOpacity: 1}),\n    Plot.sphere(),\n  ]\n})\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-5","inline":false,"source":"converse_version = [\n  {version: \"C1\", BGP: 0.63, BCP: 0.88, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.38, POC_2000m: 0.19,\n  ratio_1000m: 2.3, ratio_2000m: 4.6},\n  {version: \"C2\", BGP: 0.92, BCP: 1.16, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.68, POC_2000m: 0.42,\n  ratio_1000m: 1.7, ratio_2000m: 2.8},\n  {version: \"C3\", BGP: 0.71, BCP: 0.95, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.47, POC_2000m: 0.26,\n  ratio_1000m: 2.0, ratio_2000m: 3.7},\n  {version: \"C4\", BGP: 1.89, BCP: 2.61, Mixing: 0.45, Migrant: 0.26, POC_1000m: 1.13, POC_2000m: 0.47,\n  ratio_1000m: 2.3, ratio_2000m: 5.6},\n  {version: \"C5\", BGP: 1.86, BCP: 2.44, Mixing: 0.32, Migrant: 0.26, POC_1000m: 1.13, POC_2000m: 0.47,\n  ratio_1000m: 2.2, ratio_2000m: 5.2},\n  {version: \"C6\", BGP: 0.76, BCP: 1.00, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.46, POC_2000m: 0.19,\n  ratio_1000m: 2.2, ratio_2000m: 5.3},\n  {version: \"C7\", BGP: 0.63, BCP: 0.96, Mixing: 0.22, Migrant: 0.11, POC_1000m: 0.38, POC_2000m: 0.19,\n  ratio_1000m: 2.5, ratio_2000m: 5.1},\n];\n\nviewof select_pump = Inputs.select(\n  [\n    {label: \"BGP\", value: \"BGP\"},\n    {label: \"Mixing\", value: \"Mixing\"},\n    {label: \"Migrant (diel)\", value: \"Migrant\"},\n    {label: \"BCP\", value: \"BCP\"},\n    {label: \"POC flux at 1000 m\", value: \"POC_1000m\"},\n    {label: \"POC flux at 2000 m\", value: \"POC_2000m\"},\n    {label: \"Ratio BCP over POC flux at 1000 m\", value: \"ratio_1000m\"},\n    {label: \"Ratio BCP over POC flux at 2000 m\", value: \"ratio_2000m\"}\n  ],\n  {label: html`Global F<sub>seq</sub> <br>(Pg C year<sup>-1</sup>)`, format: x => x.label, value: maps.find(y => y.label == \"BGP\")}\n);\n\nPlot.plot({\n  <!-- caption: \"Histogram of CONVERSE values based on selected pump\", -->\n  y: {grid: true},\n  marks: [\n    Plot.barY(converse_version, {x: \"version\", y: select_pump.value}),\n    Plot.text(converse_version, {x: \"version\", y: select_pump.value, text: select_pump, textAnchor: \"middle\", dy: 10, fill: \"white\"}),\n    Plot.ruleY([0])\n  ]\n})\n"},{"methodName":"interpretQuiet","source":"shinyInput('max_value1')"},{"methodName":"interpretQuiet","source":"shinyInput('f100_depth')"},{"methodName":"interpretQuiet","source":"shinyInput('rotate2')"},{"methodName":"interpretQuiet","source":"shinyInput('max_value2')"},{"methodName":"interpretQuiet","source":"shinyInput('left_data')"},{"methodName":"interpretQuiet","source":"shinyInput('right_data')"},{"methodName":"interpretQuiet","source":"shinyInput('select_pump')"}]}
+{"contents":[{"methodName":"interpretLenient","cellName":"ojs-cell-1","inline":false,"source":"\nd3 = require(\"d3@7\")\n\nworld = FileAttachment(\"data_converse/countries-110m.json\").json()\nland = topojson.feature(world, world.objects.land)\n\n<!-- Issue to read the big file from git lfs so hard solution: split the big file into 4 pieces --> \n\n<!-- f100_data = d3.json(\"data_converse/f100_full.geojson\").then(d => d.features.map(f => { -->\n<!--   const c = d3.geoCentroid(f); -->\n<!--   return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]}; -->\n<!-- })) -->\n\nf100_data1 = d3.json(\"data_converse/f100_part1.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data2 = d3.json(\"data_converse/f100_part2.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data3 = d3.json(\"data_converse/f100_part3.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data4 = d3.json(\"data_converse/f100_part4.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data = [...f100_data1, ...f100_data2, ...f100_data3, ...f100_data4];\n\nviewof max_value1 = Inputs.range([0, 1], {step: 0.05, label: \"max colorbar\"})\n\nviewof f100_depth = Inputs.select(\n  [\n    5, 15, 25, 36, 48, 61, 75, 91,\n    109, 130, 153, 179, 209, 242,\n    279, 320, 365, 415, 470, 531,\n    597, 669, 747, 832, 923, 1022,\n    1128, 1241, 1363, 1493, 1631,\n    1778, 1935, 2101, 2277, 2462,\n    2658, 2865, 3083, 3312, 3552,\n    3804, 4068, 4345, 4634, 4937,\n    5253, 5582\n  ],\n  {label: \"depth (m)\", value: 531.0}\n)\n\nf100_filtered = f100_data.filter(data => data.depth == f100_depth);\n\nPlot.plot({\n  projection: {type: \"equal-earth\"},\n  color: {\n    scheme: \"BuPu\",\n    domain: [0, max_value1],\n    legend: true,\n    label: \"f100\"\n  },\n  marks: [\n    Plot.raster(f100_filtered, {\n    fill: \"value\",\n    width: 180,\n    height: 91,\n    x1: -180,\n    y1: -90,\n    x2: 180,\n    y2: 90,\n    clip: \"sphere\",\n    interpolate: \"barycentric\"\n}),\n    Plot.geo(land, {fill: \"currentColor\", fillOpacity: 1}),\n    Plot.sphere(),\n  ]\n})\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-2","inline":false,"source":"f100_global_median = FileAttachment(\"data_converse/f100_global_median_average.csv\").csv({typed: true})\n<!-- https://community.rstudio.com/t/observable-js-plot-error-in-quarto-document-plot-pointerx-is-not-a-function/172090/3 -->\nPlot = import(\"https://esm.sh/@observablehq/plot\")\nPlot.plot({\n  grid: true,\n  marks: [\n    Plot.dot(f100_global_median, {x: \"f100\", y: \"depth\", fill: \"black\"}),\n    Plot.tip(f100_global_median, Plot.pointer({x: \"f100\", y: \"depth\"}))\n  ],\n  y: {domain: [5600, 0],\n      label: \"Depth (m)\"    \n  }\n})\n\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-3","inline":false,"source":"\nviewof rotate2 = Inputs.form([\n  Inputs.range([-180, 180], {step: 1, label: \"longitude\"}),\n  Inputs.range([-90, 90], {step: 1, label: \"latitude\"}),\n])\n\nviewof max_value2 = Inputs.range([0, 100], {step: 0.05, label: \"max colorbar\"})\n\nmaps = [\n  {label: \"POC export 100 m (Henson et al., 2012)\", value: \"FexpH\"},\n  {label: \"POC export 100 m (DeVries et al., 2017)\", value: \"FexpT\"},\n  {label: \"POC export EZ base (DeVries et al., 2017)\", value: \"FexpZeu\"},\n  {label: \"BGP - C1/C6/C7\", value: \"FseqPOC_H_100m_martin\"},\n  {label: \"BGP - C2\", value: \"FseqPOC_H_100m_henson\"},\n  {label: \"BGP - C3\", value: \"FseqPOC_H_100m_guidi\"},\n  {label: \"BGP - C4\", value: \"FseqPOC_ST_Zeu\"},\n  {label: \"BGP - C5\", value: \"FseqPOC_ST_100m\"},\n  {label: \"Mixing - C1/C2/C3\", value: \"FseqDOC_H_100m_martin\"},\n  {label: \"Mixing - C4\", value: \"FseqDOC_ST_Zeu\"},\n  {label: \"Mixing - C5\", value: \"FseqDOC_ST_100m\"},\n  {label: \"Mixing - C6\", value: \"FseqDOC_C6\"},\n  {label: \"Mixing - C7\", value: \"FseqDOC_H_100m_C7\"},\n  {label: \"Migrant - C1/C2/C3/C6/C7\", value: \"FseqMigrD_H_100m_martin\"},\n  {label: \"Migrant - C4/C5\", value: \"FseqMigrD_ST_Zeu\"},\n  {label: \"BCP - C1\", value: \"FseqBCPs_H_100m_martin\"},\n  {label: \"BCP - C2\", value: \"FseqBCPs_H_100m_henson\"},\n  {label: \"BCP - C3\", value: \"FseqBCPs_H_100m_guidi\"},\n  {label: \"BCP - C4\", value: \"FseqBCPs_ST_Zeu\"},\n  {label: \"BCP - C5\", value: \"FseqBCPs_ST_100m\"},\n  {label: \"BCP - C6\", value: \"FseqBCPs_H_100m_C6\"},\n  {label: \"BCP - C7\", value: \"FseqBCPs_H_100m_C7\"},\n  {label: \"Fseq@1000 m - C1/C7\", value: \"FseqPOC1000m_martin\"},\n  {label: \"Fseq@1000 m - C2\", value: \"FseqPOC1000m_henson\"},\n  {label: \"Fseq@1000 m - C3\", value: \"FseqPOC1000m_guidi\"},\n  {label: \"Fseq@1000 m - C4/C5\", value: \"FseqPOC1000m_C4\"},\n  {label: \"Fseq@1000 m - C6\", value: \"FseqPOC1000m_C6\"},\n]\n\nviewof left_data = Inputs.select(\n  maps, {label: \"left data\", format: x => x.label, value: maps.find(y => y.label == \"POC export 100 m (Henson et al., 2012)\")}\n);\n\nviewof right_data = Inputs.select(\n  maps, {label: \"right data\", format: x => x.label, value: maps.find(y => y.label == \"POC export 100 m (DeVries et al., 2017)\")}\n);\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-4","inline":false,"source":"\ndata_selected_left = d3.json(`data_converse/${left_data.value}.geojson`).then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, longitude: c[0], latitude: c[1]};\n}))\n\nPlot.plot({\n  projection: {width: 500, height: 500, type: \"orthographic\", rotate: rotate2},\n  <!-- projection: {type: \"orthographic\", rotate: [-longitude, -latitude], domain: circle}, -->\n  color: {\n    scheme: \"BuPu\",\n    domain: [0, max_value2],\n    legend: true,\n    label: \"carbon flux (mg C m-2 year-1)\"\n  },\n  marks: [\n    Plot.raster(data_selected_left, {\n    fill: \"value\",\n    width: 180,\n    height: 91,\n    x1: -180,\n    y1: -90,\n    x2: 180,\n    y2: 90,\n    clip: \"sphere\",\n    interpolate: \"barycentric\",\n    pointerEvents: \"auto\",\n    tip: true\n}),\n    Plot.geo(land, {fill: \"currentColor\", fillOpacity: 1}),\n    Plot.sphere(),\n  ]\n})\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-5","inline":false,"source":"\ndata_selected_right = d3.json(`data_converse/${right_data.value}.geojson`).then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, longitude: c[0], latitude: c[1]};\n}))\n\n\nPlot.plot({\n  projection: {width: 500, height: 500, type: \"orthographic\", rotate: rotate2},\n  color: {\n    scheme: \"BuPu\",\n    domain: [0, max_value2],\n    legend: true,\n    label: \"carbon flux (mg C m-2 year-1)\"\n  },\n  marks: [\n    Plot.raster(data_selected_right, {\n    fill: \"value\",\n    width: 180,\n    height: 91,\n    x1: -180,\n    y1: -90,\n    x2: 180,\n    y2: 90,\n    clip: \"sphere\",\n    interpolate: \"barycentric\",\n    pointerEvents: \"auto\",\n    tip: true\n}),\n    Plot.geo(land, {fill: \"currentColor\", fillOpacity: 1}),\n    Plot.sphere(),\n  ]\n})\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-6","inline":false,"source":"converse_version = [\n  {version: \"C1\", BGP: 0.63, BCP: 0.88, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.38, POC_2000m: 0.19,\n  ratio_1000m: 2.3, ratio_2000m: 4.6},\n  {version: \"C2\", BGP: 0.92, BCP: 1.16, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.68, POC_2000m: 0.42,\n  ratio_1000m: 1.7, ratio_2000m: 2.8},\n  {version: \"C3\", BGP: 0.71, BCP: 0.95, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.47, POC_2000m: 0.26,\n  ratio_1000m: 2.0, ratio_2000m: 3.7},\n  {version: \"C4\", BGP: 1.89, BCP: 2.61, Mixing: 0.45, Migrant: 0.26, POC_1000m: 1.13, POC_2000m: 0.47,\n  ratio_1000m: 2.3, ratio_2000m: 5.6},\n  {version: \"C5\", BGP: 1.86, BCP: 2.44, Mixing: 0.32, Migrant: 0.26, POC_1000m: 1.13, POC_2000m: 0.47,\n  ratio_1000m: 2.2, ratio_2000m: 5.2},\n  {version: \"C6\", BGP: 0.76, BCP: 1.00, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.46, POC_2000m: 0.19,\n  ratio_1000m: 2.2, ratio_2000m: 5.3},\n  {version: \"C7\", BGP: 0.63, BCP: 0.96, Mixing: 0.22, Migrant: 0.11, POC_1000m: 0.38, POC_2000m: 0.19,\n  ratio_1000m: 2.5, ratio_2000m: 5.1},\n];\n\nviewof select_pump = Inputs.select(\n  [\n    {label: \"BGP\", value: \"BGP\"},\n    {label: \"Mixing\", value: \"Mixing\"},\n    {label: \"Migrant (diel)\", value: \"Migrant\"},\n    {label: \"BCP\", value: \"BCP\"},\n    {label: \"POC flux at 1000 m\", value: \"POC_1000m\"},\n    {label: \"POC flux at 2000 m\", value: \"POC_2000m\"},\n    {label: \"Ratio BCP over POC flux at 1000 m\", value: \"ratio_1000m\"},\n    {label: \"Ratio BCP over POC flux at 2000 m\", value: \"ratio_2000m\"}\n  ],\n  {label: html`Global F<sub>seq</sub> <br>(Pg C year<sup>-1</sup>)`, format: x => x.label, value: maps.find(y => y.label == \"BGP\")}\n);\n\nPlot.plot({\n  <!-- caption: \"Histogram of CONVERSE values based on selected pump\", -->\n  y: {grid: true},\n  marks: [\n    Plot.barY(converse_version, {x: \"version\", y: select_pump.value}),\n    Plot.text(converse_version, {x: \"version\", y: select_pump.value, text: select_pump, textAnchor: \"middle\", dy: 10, fill: \"white\"}),\n    Plot.ruleY([0])\n  ]\n})\n"},{"methodName":"interpretQuiet","source":"shinyInput('max_value1')"},{"methodName":"interpretQuiet","source":"shinyInput('f100_depth')"},{"methodName":"interpretQuiet","source":"shinyInput('rotate2')"},{"methodName":"interpretQuiet","source":"shinyInput('max_value2')"},{"methodName":"interpretQuiet","source":"shinyInput('left_data')"},{"methodName":"interpretQuiet","source":"shinyInput('right_data')"},{"methodName":"interpretQuiet","source":"shinyInput('select_pump')"}]}
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }

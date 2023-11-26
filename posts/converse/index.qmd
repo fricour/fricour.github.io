@@ -2,7 +2,7 @@
 title: "CONVERSE"
 description: "Century-scale biological carbon sequestration flux"
 author: "Florian Ricour"
-date: "2023-10-03"
+date: "2023-11-27"
 categories: [academic, biological carbon pump]
 image: "images/synthesis_pump_VF.png"
 
@@ -157,6 +157,30 @@ The BCP can therefore be seen as the combination of three export pathways:
 1.  The biological gravitational pump (BGP).
 2.  The biologically mediated particle injection pump (migrant pump), which consists in the direct injection of POC below the euphotic zone through the vertical migration of animals (on daily and seasonal time scales).
 3.  The physically mediated particle injection pump (mixing pump), composed of three separate pumps: the mixed layer pump, the eddy subduction pump and the large-scale subduction pump that directly inject DOC below the surface layer (i.e. euphotic zone).
+
+# Continuous vertical sequestration (CONVERSE)
+
+While the figure above correctly illustrates the three export pathways of the BCP, it still represents the old paradigm of sequestration, i.e. it only occurs at depth. However, the depth distribution of global median $f_{100}$ values shows that $f_{100}$ increases rapidly from the surface to $\approx$ 0.6 at 1000 m, and progressively up to 1 at the seafloor, indicating that 100% of remineralized DIC is retained for $\ge$ 100 years. 
+
+```{ojs}
+f100_global_median = FileAttachment("data_converse/f100_global_median_average.csv").csv({typed: true})
+<!-- https://community.rstudio.com/t/observable-js-plot-error-in-quarto-document-plot-pointerx-is-not-a-function/172090/3 -->
+Plot = import("https://esm.sh/@observablehq/plot")
+Plot.plot({
+  grid: true,
+  marks: [
+    Plot.dot(f100_global_median, {x: "f100", y: "depth", fill: "black"}),
+    Plot.tip(f100_global_median, Plot.pointer({x: "f100", y: "depth"}))
+  ],
+  y: {domain: [5600, 0],
+      label: "Depth (m)"    
+  }
+})
+
+```
+As a result of this continuous sequestration by the BCP, we propose the following new conceptual representation of the BCP:
+
+![[Revised conceptual representation of the BCP $\textcopyright$ Laetitia Drago.]{style="color: gray;"}](images/illustration_press_release.jpg){fig-align="left" width=600}
 
 # A variety of CONVERSE versions
 
