@@ -21,17 +21,11 @@ cls: journal-of-oceanography.csl
 link-citations: true
 ---
 
-In our paper entitled *Century-scale carbon sequestration flux throughout the ocean by the biological pump*, we estimate that the flux of organic carbon that is sequestered for $\geq$ 100 years by the biological carbon pump (BCP) is 0.9-2.6 Pg C year$^{-1}$. This estimation is **up to 6 times larger** than previous estimates based on the common assumption that sequestration only occurs in the deep ocean (i.e. typically below 1000 m).
+In our [paper](https://www.nature.com/articles/s41561-023-01318-9) entitled *Century-scale carbon sequestration flux throughout the ocean by the biological pump*, we estimate that the flux of organic carbon that is sequestered for $\geq$ 100 years by the biological carbon pump (BCP) is 0.9-2.6 Pg C year$^{-1}$. This estimation is **up to 6 times larger** than previous estimates based on the common assumption that sequestration only occurs in the deep ocean (i.e. typically below 1000 m).
 
 Instead, our study is based on the concept of continuous vertical sequestration, that we refer to as CONVERSE, which states that sequestration (for $\geq$ 100 years) can occur throughout the entire water column.
 
-While this work is published, I feel like something is missing. Based on my experience with scientific literature, I would say that it is not uncommon to encounter those issues when you write a paper:
-
-1.  Too much text and you don't want to throw away half of your research so you write (lots of) pages of supplementary material.
-2.  Figures are static hence it is sometimes difficult to "feel" the data.
-3.  Figures and tables are too big or too complicated because you don't want to go back to point 1.
-
-Therefore, by writing this summary, I hope to bring some data interactivity and a clearer understanding of our results.
+The present summary simplifies the published [paper](https://www.nature.com/articles/s41561-023-01318-9) and makes it more reader-friendly. To do so, some of the text, data and results, which are essential for the primary publication, are not included, and our results are presented in an interactive way. This way our key results should be easy to understand by a broad range of readers.
 
 # Keywords to keep in mind
 
@@ -158,9 +152,11 @@ The BCP can therefore be seen as the combination of three export pathways:
 2.  The biologically mediated particle injection pump (migrant pump), which consists in the direct injection of POC below the euphotic zone through the vertical migration of animals (on daily and seasonal time scales).
 3.  The physically mediated particle injection pump (mixing pump), composed of three separate pumps: the mixed layer pump, the eddy subduction pump and the large-scale subduction pump that directly inject DOC below the surface layer (i.e. euphotic zone).
 
+The times indicated in this figure (10, 100 and 1000 years) can be understood as average residence times of carbon in the water column. Indeed, it is shown in our study that some fraction of the carbon exported by the three pathways can be sequestered at all depths throughout the water column, this fraction increasing with depth (see next section).
+
 # Continuous vertical sequestration (CONVERSE)
 
-While the figure above correctly illustrates the three export pathways of the BCP, it still represents the old paradigm of sequestration, i.e. it only occurs at depth. However, the depth distribution of global median $f_{100}$ values shows that $f_{100}$ increases rapidly from the surface to $\approx$ 0.6 at 1000 m, and progressively up to 1 at the seafloor, indicating that 100% of remineralized DIC is retained for $\ge$ 100 years. 
+While the figure above correctly illustrates the three export pathways of the BCP, it still represents the old paradigm of sequestration, i.e. it only occurs at depth. However, the depth distribution of global median $f_{100}$ values shows that $f_{100}$ increases rapidly from the surface to $\approx$ 0.6 at 1000 m, and progressively up to 1 at the seafloor, indicating that 100% of remineralized DIC is retained for $\ge$ 100 years.
 
 ```{ojs}
 f100_global_median = FileAttachment("data_converse/f100_global_median_average.csv").csv({typed: true})
@@ -178,9 +174,10 @@ Plot.plot({
 })
 
 ```
+
 As a result of this continuous sequestration by the BCP, we propose the following new conceptual representation of the BCP:
 
-![[Revised conceptual representation of the BCP $\textcopyright$ Laetitia Drago.]{style="color: gray;"}](images/illustration_press_release.jpg){fig-align="left" width=600}
+![[Revised conceptual representation of the BCP $\textcopyright$ Laetitia Drago.]{style="color: gray;"}](images/illustration_press_release.jpg){fig-align="left" width="600"}
 
 # A variety of CONVERSE versions
 
