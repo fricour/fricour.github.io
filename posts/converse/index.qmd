@@ -21,11 +21,11 @@ cls: journal-of-oceanography.csl
 link-citations: true
 ---
 
-In our [paper](https://www.nature.com/articles/s41561-023-01318-9) entitled *Century-scale carbon sequestration flux throughout the ocean by the biological pump*, we estimate that the flux of organic carbon that is sequestered for $\geq$ 100 years by the biological carbon pump (BCP) is 0.9-2.6 Pg C year$^{-1}$. This estimation is **up to 6 times larger** than previous estimates based on the common assumption that sequestration only occurs in the deep ocean (i.e. typically below 1000 m).
+In our [paper](https://rdcu.be/dr8nk) entitled *Century-scale carbon sequestration flux throughout the ocean by the biological pump*, we estimate that the flux of organic carbon that is sequestered for $\geq$ 100 years by the biological carbon pump (BCP) is 0.9-2.6 Pg C year$^{-1}$. This estimation is **up to 6 times larger** than previous estimates based on the common assumption that sequestration only occurs in the deep ocean (i.e. typically below 1000 m).
 
 Instead, our study is based on the concept of continuous vertical sequestration, that we refer to as CONVERSE, which states that sequestration (for $\geq$ 100 years) can occur throughout the entire water column.
 
-The present summary simplifies the published [paper](https://www.nature.com/articles/s41561-023-01318-9) and makes it more reader-friendly. To do so, some of the text, data and results, which are essential for the primary publication, are not included, and our results are presented in an interactive way. This way our key results should be easy to understand by a broad range of readers.
+The present summary simplifies the published [paper](https://rdcu.be/dr8nk) and makes it more reader-friendly. To do so, some of the text, data and results, which are essential for the primary publication, are not included, and our results are presented in an interactive way. This way our key results should be easy to understand by a broad range of readers.
 
 # Keywords to keep in mind
 
