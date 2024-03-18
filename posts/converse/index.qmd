@@ -161,7 +161,8 @@ While the figure above correctly illustrates the three export pathways of the BC
 ```{ojs}
 f100_global_median = FileAttachment("data_converse/f100_global_median_average.csv").csv({typed: true})
 <!-- https://community.rstudio.com/t/observable-js-plot-error-in-quarto-document-plot-pointerx-is-not-a-function/172090/3 -->
-Plot = import("https://esm.sh/@observablehq/plot")
+<!-- Plot = import("https://esm.sh/@observablehq/plot") had to be changed, see https://github.com/observablehq/plot/issues/2022-->
+Plot = import("https://cdn.jsdelivr.net/npm/@observablehq/plot/+esm")
 Plot.plot({
   grid: true,
   marks: [
