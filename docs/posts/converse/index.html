@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.367">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -87,6 +87,7 @@ div.csl-indent {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../favicon-16x16.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -102,7 +103,7 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
@@ -117,6 +118,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -128,14 +130,41 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -148,23 +177,16 @@ div.csl-indent {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../curriculum.html"> 
-<span class="menu-text">Curriculum Vitae</span></a>
+    <a class="nav-link" href="../../articles.html"> 
+<span class="menu-text">Portfolio</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../cycling.html"> 
 <span class="menu-text">Cycling activities</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../articles.html"> 
-<span class="menu-text">Data Viz</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/fricour" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://linkedin.com/in/florian-ricour-a06359281" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
-    <a href="mailto:info@fricour.aleeas.com?" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -228,6 +250,7 @@ div.csl-indent {
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -496,6 +519,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
 <p>Using different remineralization factors (fixed, local or regional), data sources, export flux (model data from <span class="citation" data-cites="Henson2012-ck">Henson, Sanders, and Madsen (<a href="#ref-Henson2012-ck" role="doc-biblioref">2012</a>)</span> or <span class="citation" data-cites="DeVries2017-wu">DeVries and Weber (<a href="#ref-DeVries2017-wu" role="doc-biblioref">2017</a>)</span>) export depths (100 m or base of EZ), we computed 7 distinct CONVERSE versions which are briefly resumed in the following table.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-3_49dd719e1a17cb7b03b2ec3b0a93ee3b">
 <div class="cell-output-display">
+<div>
 <div id="bfxeflrhxc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#bfxeflrhxc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1019,6 +1043,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="a-visual-tool-to-compare-the-7-versions" class="level1">
 <h1>A visual tool to compare the 7 versions</h1>
@@ -1294,7 +1319,7 @@ F_{z} = F_{z_{export}} \left(\frac{z}{z_{export}}\right)^{-b}
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Boyd2019-ez" class="csl-entry" role="listitem">
 Boyd, Philip W, Hervé Claustre, Marina Levy, David A Siegel, and Thomas Weber. 2019. <span>“Multi-Faceted Particle Pumps Drive Carbon Sequestration in the Ocean.”</span> <em>Nature</em> 568 (7752): 327–35. <a href="https://doi.org/10.1038/s41586-019-1098-2">https://doi.org/10.1038/s41586-019-1098-2</a>.
 </div>
@@ -1315,7 +1340,7 @@ Siegel, David A, Tim DeVries, Scott Doney, and Tom Bell. 2021. <span>“Assessin
 </div>
 </div></section></div></main> <!-- /main -->
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpretLenient","cellName":"ojs-cell-1","inline":false,"source":"\nd3 = require(\"d3@7\")\n\nworld = FileAttachment(\"data_converse/countries-110m.json\").json()\nland = topojson.feature(world, world.objects.land)\n\n<!-- Issue to read the big file from git lfs so hard solution: split the big file into 4 pieces --> \n\n<!-- f100_data = d3.json(\"data_converse/f100_full.geojson\").then(d => d.features.map(f => { -->\n<!--   const c = d3.geoCentroid(f); -->\n<!--   return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]}; -->\n<!-- })) -->\n\nf100_data1 = d3.json(\"data_converse/f100_part1.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data2 = d3.json(\"data_converse/f100_part2.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data3 = d3.json(\"data_converse/f100_part3.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data4 = d3.json(\"data_converse/f100_part4.geojson\").then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, depth: f.properties.depth, longitude: c[0], latitude: c[1]};\n}))\n\nf100_data = [...f100_data1, ...f100_data2, ...f100_data3, ...f100_data4];\n\nviewof max_value1 = Inputs.range([0, 1], {step: 0.05, label: \"max colorbar\"})\n\nviewof f100_depth = Inputs.select(\n  [\n    5, 15, 25, 36, 48, 61, 75, 91,\n    109, 130, 153, 179, 209, 242,\n    279, 320, 365, 415, 470, 531,\n    597, 669, 747, 832, 923, 1022,\n    1128, 1241, 1363, 1493, 1631,\n    1778, 1935, 2101, 2277, 2462,\n    2658, 2865, 3083, 3312, 3552,\n    3804, 4068, 4345, 4634, 4937,\n    5253, 5582\n  ],\n  {label: \"depth (m)\", value: 531.0}\n)\n\nf100_filtered = f100_data.filter(data => data.depth == f100_depth);\n\nPlot.plot({\n  projection: {type: \"equal-earth\"},\n  color: {\n    scheme: \"BuPu\",\n    domain: [0, max_value1],\n    legend: true,\n    label: \"f100\"\n  },\n  marks: [\n    Plot.raster(f100_filtered, {\n    fill: \"value\",\n    width: 180,\n    height: 91,\n    x1: -180,\n    y1: -90,\n    x2: 180,\n    y2: 90,\n    clip: \"sphere\",\n    interpolate: \"barycentric\"\n}),\n    Plot.geo(land, {fill: \"currentColor\", fillOpacity: 1}),\n    Plot.sphere(),\n  ]\n})\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-2","inline":false,"source":"f100_global_median = FileAttachment(\"data_converse/f100_global_median_average.csv\").csv({typed: true})\n<!-- https://community.rstudio.com/t/observable-js-plot-error-in-quarto-document-plot-pointerx-is-not-a-function/172090/3 -->\n<!-- Plot = import(\"https://esm.sh/@observablehq/plot\") had to be changed, see https://github.com/observablehq/plot/issues/2022-->\nPlot = import(\"https://cdn.jsdelivr.net/npm/@observablehq/plot/+esm\")\nPlot.plot({\n  grid: true,\n  marks: [\n    Plot.dot(f100_global_median, {x: \"f100\", y: \"depth\", fill: \"black\"}),\n    Plot.tip(f100_global_median, Plot.pointer({x: \"f100\", y: \"depth\"}))\n  ],\n  y: {domain: [5600, 0],\n      label: \"Depth (m)\"    \n  }\n})\n\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-3","inline":false,"source":"\nviewof rotate2 = Inputs.form([\n  Inputs.range([-180, 180], {step: 1, label: \"longitude\"}),\n  Inputs.range([-90, 90], {step: 1, label: \"latitude\"}),\n])\n\nviewof max_value2 = Inputs.range([0, 100], {step: 0.05, label: \"max colorbar\"})\n\nmaps = [\n  {label: \"POC export 100 m (Henson et al., 2012)\", value: \"FexpH\"},\n  {label: \"POC export 100 m (DeVries et al., 2017)\", value: \"FexpT\"},\n  {label: \"POC export EZ base (DeVries et al., 2017)\", value: \"FexpZeu\"},\n  {label: \"BGP - C1/C6/C7\", value: \"FseqPOC_H_100m_martin\"},\n  {label: \"BGP - C2\", value: \"FseqPOC_H_100m_henson\"},\n  {label: \"BGP - C3\", value: \"FseqPOC_H_100m_guidi\"},\n  {label: \"BGP - C4\", value: \"FseqPOC_ST_Zeu\"},\n  {label: \"BGP - C5\", value: \"FseqPOC_ST_100m\"},\n  {label: \"Mixing - C1/C2/C3\", value: \"FseqDOC_H_100m_martin\"},\n  {label: \"Mixing - C4\", value: \"FseqDOC_ST_Zeu\"},\n  {label: \"Mixing - C5\", value: \"FseqDOC_ST_100m\"},\n  {label: \"Mixing - C6\", value: \"FseqDOC_C6\"},\n  {label: \"Mixing - C7\", value: \"FseqDOC_H_100m_C7\"},\n  {label: \"Migrant - C1/C2/C3/C6/C7\", value: \"FseqMigrD_H_100m_martin\"},\n  {label: \"Migrant - C4/C5\", value: \"FseqMigrD_ST_Zeu\"},\n  {label: \"BCP - C1\", value: \"FseqBCPs_H_100m_martin\"},\n  {label: \"BCP - C2\", value: \"FseqBCPs_H_100m_henson\"},\n  {label: \"BCP - C3\", value: \"FseqBCPs_H_100m_guidi\"},\n  {label: \"BCP - C4\", value: \"FseqBCPs_ST_Zeu\"},\n  {label: \"BCP - C5\", value: \"FseqBCPs_ST_100m\"},\n  {label: \"BCP - C6\", value: \"FseqBCPs_H_100m_C6\"},\n  {label: \"BCP - C7\", value: \"FseqBCPs_H_100m_C7\"},\n  {label: \"Fseq@1000 m - C1/C7\", value: \"FseqPOC1000m_martin\"},\n  {label: \"Fseq@1000 m - C2\", value: \"FseqPOC1000m_henson\"},\n  {label: \"Fseq@1000 m - C3\", value: \"FseqPOC1000m_guidi\"},\n  {label: \"Fseq@1000 m - C4/C5\", value: \"FseqPOC1000m_C4\"},\n  {label: \"Fseq@1000 m - C6\", value: \"FseqPOC1000m_C6\"},\n]\n\nviewof left_data = Inputs.select(\n  maps, {label: \"left data\", format: x => x.label, value: maps.find(y => y.label == \"POC export 100 m (Henson et al., 2012)\")}\n);\n\nviewof right_data = Inputs.select(\n  maps, {label: \"right data\", format: x => x.label, value: maps.find(y => y.label == \"POC export 100 m (DeVries et al., 2017)\")}\n);\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-4","inline":false,"source":"\ndata_selected_left = d3.json(`data_converse/${left_data.value}.geojson`).then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, longitude: c[0], latitude: c[1]};\n}))\n\nPlot.plot({\n  projection: {width: 500, height: 500, type: \"orthographic\", rotate: rotate2},\n  <!-- projection: {type: \"orthographic\", rotate: [-longitude, -latitude], domain: circle}, -->\n  color: {\n    scheme: \"BuPu\",\n    domain: [0, max_value2],\n    legend: true,\n    label: \"carbon flux (mg C m-2 year-1)\"\n  },\n  marks: [\n    Plot.raster(data_selected_left, {\n    fill: \"value\",\n    width: 180,\n    height: 91,\n    x1: -180,\n    y1: -90,\n    x2: 180,\n    y2: 90,\n    clip: \"sphere\",\n    interpolate: \"barycentric\",\n    pointerEvents: \"auto\",\n    tip: true\n}),\n    Plot.geo(land, {fill: \"currentColor\", fillOpacity: 1}),\n    Plot.sphere(),\n  ]\n})\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-5","inline":false,"source":"\ndata_selected_right = d3.json(`data_converse/${right_data.value}.geojson`).then(d => d.features.map(f => {\n  const c = d3.geoCentroid(f);\n  return {value: f.properties.value, longitude: c[0], latitude: c[1]};\n}))\n\n\nPlot.plot({\n  projection: {width: 500, height: 500, type: \"orthographic\", rotate: rotate2},\n  color: {\n    scheme: \"BuPu\",\n    domain: [0, max_value2],\n    legend: true,\n    label: \"carbon flux (mg C m-2 year-1)\"\n  },\n  marks: [\n    Plot.raster(data_selected_right, {\n    fill: \"value\",\n    width: 180,\n    height: 91,\n    x1: -180,\n    y1: -90,\n    x2: 180,\n    y2: 90,\n    clip: \"sphere\",\n    interpolate: \"barycentric\",\n    pointerEvents: \"auto\",\n    tip: true\n}),\n    Plot.geo(land, {fill: \"currentColor\", fillOpacity: 1}),\n    Plot.sphere(),\n  ]\n})\n"},{"methodName":"interpretLenient","cellName":"ojs-cell-6","inline":false,"source":"converse_version = [\n  {version: \"C1\", BGP: 0.63, BCP: 0.88, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.38, POC_2000m: 0.19,\n  ratio_1000m: 2.3, ratio_2000m: 4.6},\n  {version: \"C2\", BGP: 0.92, BCP: 1.16, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.68, POC_2000m: 0.42,\n  ratio_1000m: 1.7, ratio_2000m: 2.8},\n  {version: \"C3\", BGP: 0.71, BCP: 0.95, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.47, POC_2000m: 0.26,\n  ratio_1000m: 2.0, ratio_2000m: 3.7},\n  {version: \"C4\", BGP: 1.89, BCP: 2.61, Mixing: 0.45, Migrant: 0.26, POC_1000m: 1.13, POC_2000m: 0.47,\n  ratio_1000m: 2.3, ratio_2000m: 5.6},\n  {version: \"C5\", BGP: 1.86, BCP: 2.44, Mixing: 0.32, Migrant: 0.26, POC_1000m: 1.13, POC_2000m: 0.47,\n  ratio_1000m: 2.2, ratio_2000m: 5.2},\n  {version: \"C6\", BGP: 0.76, BCP: 1.00, Mixing: 0.13, Migrant: 0.11, POC_1000m: 0.46, POC_2000m: 0.19,\n  ratio_1000m: 2.2, ratio_2000m: 5.3},\n  {version: \"C7\", BGP: 0.63, BCP: 0.96, Mixing: 0.22, Migrant: 0.11, POC_1000m: 0.38, POC_2000m: 0.19,\n  ratio_1000m: 2.5, ratio_2000m: 5.1},\n];\n\nviewof select_pump = Inputs.select(\n  [\n    {label: \"BGP\", value: \"BGP\"},\n    {label: \"Mixing\", value: \"Mixing\"},\n    {label: \"Migrant (diel)\", value: \"Migrant\"},\n    {label: \"BCP\", value: \"BCP\"},\n    {label: \"POC flux at 1000 m\", value: \"POC_1000m\"},\n    {label: \"POC flux at 2000 m\", value: \"POC_2000m\"},\n    {label: \"Ratio BCP over POC flux at 1000 m\", value: \"ratio_1000m\"},\n    {label: \"Ratio BCP over POC flux at 2000 m\", value: \"ratio_2000m\"}\n  ],\n  {label: html`Global F<sub>seq</sub> <br>(Pg C year<sup>-1</sup>)`, format: x => x.label, value: maps.find(y => y.label == \"BGP\")}\n);\n\nPlot.plot({\n  <!-- caption: \"Histogram of CONVERSE values based on selected pump\", -->\n  y: {grid: true},\n  marks: [\n    Plot.barY(converse_version, {x: \"version\", y: select_pump.value}),\n    Plot.text(converse_version, {x: \"version\", y: select_pump.value, text: select_pump, textAnchor: \"middle\", dy: 10, fill: \"white\"}),\n    Plot.ruleY([0])\n  ]\n})\n"},{"methodName":"interpretQuiet","source":"shinyInput('max_value1')"},{"methodName":"interpretQuiet","source":"shinyInput('f100_depth')"},{"methodName":"interpretQuiet","source":"shinyInput('rotate2')"},{"methodName":"interpretQuiet","source":"shinyInput('max_value2')"},{"methodName":"interpretQuiet","source":"shinyInput('left_data')"},{"methodName":"interpretQuiet","source":"shinyInput('right_data')"},{"methodName":"interpretQuiet","source":"shinyInput('select_pump')"}]}
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldExlbmllbnQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbmQzID0gcmVxdWlyZShcImQzQDdcIilcblxud29ybGQgPSBGaWxlQXR0YWNobWVudChcImRhdGFfY29udmVyc2UvY291bnRyaWVzLTExMG0uanNvblwiKS5qc29uKClcbmxhbmQgPSB0b3BvanNvbi5mZWF0dXJlKHdvcmxkLCB3b3JsZC5vYmplY3RzLmxhbmQpXG5cbjwhLS0gSXNzdWUgdG8gcmVhZCB0aGUgYmlnIGZpbGUgZnJvbSBnaXQgbGZzIHNvIGhhcmQgc29sdXRpb246IHNwbGl0IHRoZSBiaWcgZmlsZSBpbnRvIDQgcGllY2VzIC0tPiBcblxuPCEtLSBmMTAwX2RhdGEgPSBkMy5qc29uKFwiZGF0YV9jb252ZXJzZS9mMTAwX2Z1bGwuZ2VvanNvblwiKS50aGVuKGQgPT4gZC5mZWF0dXJlcy5tYXAoZiA9PiB7IC0tPlxuPCEtLSAgIGNvbnN0IGMgPSBkMy5nZW9DZW50cm9pZChmKTsgLS0+XG48IS0tICAgcmV0dXJuIHt2YWx1ZTogZi5wcm9wZXJ0aWVzLnZhbHVlLCBkZXB0aDogZi5wcm9wZXJ0aWVzLmRlcHRoLCBsb25naXR1ZGU6IGNbMF0sIGxhdGl0dWRlOiBjWzFdfTsgLS0+XG48IS0tIH0pKSAtLT5cblxuZjEwMF9kYXRhMSA9IGQzLmpzb24oXCJkYXRhX2NvbnZlcnNlL2YxMDBfcGFydDEuZ2VvanNvblwiKS50aGVuKGQgPT4gZC5mZWF0dXJlcy5tYXAoZiA9PiB7XG4gIGNvbnN0IGMgPSBkMy5nZW9DZW50cm9pZChmKTtcbiAgcmV0dXJuIHt2YWx1ZTogZi5wcm9wZXJ0aWVzLnZhbHVlLCBkZXB0aDogZi5wcm9wZXJ0aWVzLmRlcHRoLCBsb25naXR1ZGU6IGNbMF0sIGxhdGl0dWRlOiBjWzFdfTtcbn0pKVxuXG5mMTAwX2RhdGEyID0gZDMuanNvbihcImRhdGFfY29udmVyc2UvZjEwMF9wYXJ0Mi5nZW9qc29uXCIpLnRoZW4oZCA9PiBkLmZlYXR1cmVzLm1hcChmID0+IHtcbiAgY29uc3QgYyA9IGQzLmdlb0NlbnRyb2lkKGYpO1xuICByZXR1cm4ge3ZhbHVlOiBmLnByb3BlcnRpZXMudmFsdWUsIGRlcHRoOiBmLnByb3BlcnRpZXMuZGVwdGgsIGxvbmdpdHVkZTogY1swXSwgbGF0aXR1ZGU6IGNbMV19O1xufSkpXG5cbmYxMDBfZGF0YTMgPSBkMy5qc29uKFwiZGF0YV9jb252ZXJzZS9mMTAwX3BhcnQzLmdlb2pzb25cIikudGhlbihkID0+IGQuZmVhdHVyZXMubWFwKGYgPT4ge1xuICBjb25zdCBjID0gZDMuZ2VvQ2VudHJvaWQoZik7XG4gIHJldHVybiB7dmFsdWU6IGYucHJvcGVydGllcy52YWx1ZSwgZGVwdGg6IGYucHJvcGVydGllcy5kZXB0aCwgbG9uZ2l0dWRlOiBjWzBdLCBsYXRpdHVkZTogY1sxXX07XG59KSlcblxuZjEwMF9kYXRhNCA9IGQzLmpzb24oXCJkYXRhX2NvbnZlcnNlL2YxMDBfcGFydDQuZ2VvanNvblwiKS50aGVuKGQgPT4gZC5mZWF0dXJlcy5tYXAoZiA9PiB7XG4gIGNvbnN0IGMgPSBkMy5nZW9DZW50cm9pZChmKTtcbiAgcmV0dXJuIHt2YWx1ZTogZi5wcm9wZXJ0aWVzLnZhbHVlLCBkZXB0aDogZi5wcm9wZXJ0aWVzLmRlcHRoLCBsb25naXR1ZGU6IGNbMF0sIGxhdGl0dWRlOiBjWzFdfTtcbn0pKVxuXG5mMTAwX2RhdGEgPSBbLi4uZjEwMF9kYXRhMSwgLi4uZjEwMF9kYXRhMiwgLi4uZjEwMF9kYXRhMywgLi4uZjEwMF9kYXRhNF07XG5cbnZpZXdvZiBtYXhfdmFsdWUxID0gSW5wdXRzLnJhbmdlKFswLCAxXSwge3N0ZXA6IDAuMDUsIGxhYmVsOiBcIm1heCBjb2xvcmJhclwifSlcblxudmlld29mIGYxMDBfZGVwdGggPSBJbnB1dHMuc2VsZWN0KFxuICBbXG4gICAgNSwgMTUsIDI1LCAzNiwgNDgsIDYxLCA3NSwgOTEsXG4gICAgMTA5LCAxMzAsIDE1MywgMTc5LCAyMDksIDI0MixcbiAgICAyNzksIDMyMCwgMzY1LCA0MTUsIDQ3MCwgNTMxLFxuICAgIDU5NywgNjY5LCA3NDcsIDgzMiwgOTIzLCAxMDIyLFxuICAgIDExMjgsIDEyNDEsIDEzNjMsIDE0OTMsIDE2MzEsXG4gICAgMTc3OCwgMTkzNSwgMjEwMSwgMjI3NywgMjQ2MixcbiAgICAyNjU4LCAyODY1LCAzMDgzLCAzMzEyLCAzNTUyLFxuICAgIDM4MDQsIDQwNjgsIDQzNDUsIDQ2MzQsIDQ5MzcsXG4gICAgNTI1MywgNTU4MlxuICBdLFxuICB7bGFiZWw6IFwiZGVwdGggKG0pXCIsIHZhbHVlOiA1MzEuMH1cbilcblxuZjEwMF9maWx0ZXJlZCA9IGYxMDBfZGF0YS5maWx0ZXIoZGF0YSA9PiBkYXRhLmRlcHRoID09IGYxMDBfZGVwdGgpO1xuXG5QbG90LnBsb3Qoe1xuICBwcm9qZWN0aW9uOiB7dHlwZTogXCJlcXVhbC1lYXJ0aFwifSxcbiAgY29sb3I6IHtcbiAgICBzY2hlbWU6IFwiQnVQdVwiLFxuICAgIGRvbWFpbjogWzAsIG1heF92YWx1ZTFdLFxuICAgIGxlZ2VuZDogdHJ1ZSxcbiAgICBsYWJlbDogXCJmMTAwXCJcbiAgfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJhc3RlcihmMTAwX2ZpbHRlcmVkLCB7XG4gICAgZmlsbDogXCJ2YWx1ZVwiLFxuICAgIHdpZHRoOiAxODAsXG4gICAgaGVpZ2h0OiA5MSxcbiAgICB4MTogLTE4MCxcbiAgICB5MTogLTkwLFxuICAgIHgyOiAxODAsXG4gICAgeTI6IDkwLFxuICAgIGNsaXA6IFwic3BoZXJlXCIsXG4gICAgaW50ZXJwb2xhdGU6IFwiYmFyeWNlbnRyaWNcIlxufSksXG4gICAgUGxvdC5nZW8obGFuZCwge2ZpbGw6IFwiY3VycmVudENvbG9yXCIsIGZpbGxPcGFjaXR5OiAxfSksXG4gICAgUGxvdC5zcGhlcmUoKSxcbiAgXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldExlbmllbnQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJmMTAwX2dsb2JhbF9tZWRpYW4gPSBGaWxlQXR0YWNobWVudChcImRhdGFfY29udmVyc2UvZjEwMF9nbG9iYWxfbWVkaWFuX2F2ZXJhZ2UuY3N2XCIpLmNzdih7dHlwZWQ6IHRydWV9KVxuPCEtLSBodHRwczovL2NvbW11bml0eS5yc3R1ZGlvLmNvbS90L29ic2VydmFibGUtanMtcGxvdC1lcnJvci1pbi1xdWFydG8tZG9jdW1lbnQtcGxvdC1wb2ludGVyeC1pcy1ub3QtYS1mdW5jdGlvbi8xNzIwOTAvMyAtLT5cbjwhLS0gUGxvdCA9IGltcG9ydChcImh0dHBzOi8vZXNtLnNoL0BvYnNlcnZhYmxlaHEvcGxvdFwiKSBoYWQgdG8gYmUgY2hhbmdlZCwgc2VlIGh0dHBzOi8vZ2l0aHViLmNvbS9vYnNlcnZhYmxlaHEvcGxvdC9pc3N1ZXMvMjAyMi0tPlxuUGxvdCA9IGltcG9ydChcImh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9ucG0vQG9ic2VydmFibGVocS9wbG90Lytlc21cIilcblBsb3QucGxvdCh7XG4gIGdyaWQ6IHRydWUsXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5kb3QoZjEwMF9nbG9iYWxfbWVkaWFuLCB7eDogXCJmMTAwXCIsIHk6IFwiZGVwdGhcIiwgZmlsbDogXCJibGFja1wifSksXG4gICAgUGxvdC50aXAoZjEwMF9nbG9iYWxfbWVkaWFuLCBQbG90LnBvaW50ZXIoe3g6IFwiZjEwMFwiLCB5OiBcImRlcHRoXCJ9KSlcbiAgXSxcbiAgeToge2RvbWFpbjogWzU2MDAsIDBdLFxuICAgICAgbGFiZWw6IFwiRGVwdGggKG0pXCIgICAgXG4gIH1cbn0pXG5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldExlbmllbnQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbnZpZXdvZiByb3RhdGUyID0gSW5wdXRzLmZvcm0oW1xuICBJbnB1dHMucmFuZ2UoWy0xODAsIDE4MF0sIHtzdGVwOiAxLCBsYWJlbDogXCJsb25naXR1ZGVcIn0pLFxuICBJbnB1dHMucmFuZ2UoWy05MCwgOTBdLCB7c3RlcDogMSwgbGFiZWw6IFwibGF0aXR1ZGVcIn0pLFxuXSlcblxudmlld29mIG1heF92YWx1ZTIgPSBJbnB1dHMucmFuZ2UoWzAsIDEwMF0sIHtzdGVwOiAwLjA1LCBsYWJlbDogXCJtYXggY29sb3JiYXJcIn0pXG5cbm1hcHMgPSBbXG4gIHtsYWJlbDogXCJQT0MgZXhwb3J0IDEwMCBtIChIZW5zb24gZXQgYWwuLCAyMDEyKVwiLCB2YWx1ZTogXCJGZXhwSFwifSxcbiAge2xhYmVsOiBcIlBPQyBleHBvcnQgMTAwIG0gKERlVnJpZXMgZXQgYWwuLCAyMDE3KVwiLCB2YWx1ZTogXCJGZXhwVFwifSxcbiAge2xhYmVsOiBcIlBPQyBleHBvcnQgRVogYmFzZSAoRGVWcmllcyBldCBhbC4sIDIwMTcpXCIsIHZhbHVlOiBcIkZleHBaZXVcIn0sXG4gIHtsYWJlbDogXCJCR1AgLSBDMS9DNi9DN1wiLCB2YWx1ZTogXCJGc2VxUE9DX0hfMTAwbV9tYXJ0aW5cIn0sXG4gIHtsYWJlbDogXCJCR1AgLSBDMlwiLCB2YWx1ZTogXCJGc2VxUE9DX0hfMTAwbV9oZW5zb25cIn0sXG4gIHtsYWJlbDogXCJCR1AgLSBDM1wiLCB2YWx1ZTogXCJGc2VxUE9DX0hfMTAwbV9ndWlkaVwifSxcbiAge2xhYmVsOiBcIkJHUCAtIEM0XCIsIHZhbHVlOiBcIkZzZXFQT0NfU1RfWmV1XCJ9LFxuICB7bGFiZWw6IFwiQkdQIC0gQzVcIiwgdmFsdWU6IFwiRnNlcVBPQ19TVF8xMDBtXCJ9LFxuICB7bGFiZWw6IFwiTWl4aW5nIC0gQzEvQzIvQzNcIiwgdmFsdWU6IFwiRnNlcURPQ19IXzEwMG1fbWFydGluXCJ9LFxuICB7bGFiZWw6IFwiTWl4aW5nIC0gQzRcIiwgdmFsdWU6IFwiRnNlcURPQ19TVF9aZXVcIn0sXG4gIHtsYWJlbDogXCJNaXhpbmcgLSBDNVwiLCB2YWx1ZTogXCJGc2VxRE9DX1NUXzEwMG1cIn0sXG4gIHtsYWJlbDogXCJNaXhpbmcgLSBDNlwiLCB2YWx1ZTogXCJGc2VxRE9DX0M2XCJ9LFxuICB7bGFiZWw6IFwiTWl4aW5nIC0gQzdcIiwgdmFsdWU6IFwiRnNlcURPQ19IXzEwMG1fQzdcIn0sXG4gIHtsYWJlbDogXCJNaWdyYW50IC0gQzEvQzIvQzMvQzYvQzdcIiwgdmFsdWU6IFwiRnNlcU1pZ3JEX0hfMTAwbV9tYXJ0aW5cIn0sXG4gIHtsYWJlbDogXCJNaWdyYW50IC0gQzQvQzVcIiwgdmFsdWU6IFwiRnNlcU1pZ3JEX1NUX1pldVwifSxcbiAge2xhYmVsOiBcIkJDUCAtIEMxXCIsIHZhbHVlOiBcIkZzZXFCQ1BzX0hfMTAwbV9tYXJ0aW5cIn0sXG4gIHtsYWJlbDogXCJCQ1AgLSBDMlwiLCB2YWx1ZTogXCJGc2VxQkNQc19IXzEwMG1faGVuc29uXCJ9LFxuICB7bGFiZWw6IFwiQkNQIC0gQzNcIiwgdmFsdWU6IFwiRnNlcUJDUHNfSF8xMDBtX2d1aWRpXCJ9LFxuICB7bGFiZWw6IFwiQkNQIC0gQzRcIiwgdmFsdWU6IFwiRnNlcUJDUHNfU1RfWmV1XCJ9LFxuICB7bGFiZWw6IFwiQkNQIC0gQzVcIiwgdmFsdWU6IFwiRnNlcUJDUHNfU1RfMTAwbVwifSxcbiAge2xhYmVsOiBcIkJDUCAtIEM2XCIsIHZhbHVlOiBcIkZzZXFCQ1BzX0hfMTAwbV9DNlwifSxcbiAge2xhYmVsOiBcIkJDUCAtIEM3XCIsIHZhbHVlOiBcIkZzZXFCQ1BzX0hfMTAwbV9DN1wifSxcbiAge2xhYmVsOiBcIkZzZXFAMTAwMCBtIC0gQzEvQzdcIiwgdmFsdWU6IFwiRnNlcVBPQzEwMDBtX21hcnRpblwifSxcbiAge2xhYmVsOiBcIkZzZXFAMTAwMCBtIC0gQzJcIiwgdmFsdWU6IFwiRnNlcVBPQzEwMDBtX2hlbnNvblwifSxcbiAge2xhYmVsOiBcIkZzZXFAMTAwMCBtIC0gQzNcIiwgdmFsdWU6IFwiRnNlcVBPQzEwMDBtX2d1aWRpXCJ9LFxuICB7bGFiZWw6IFwiRnNlcUAxMDAwIG0gLSBDNC9DNVwiLCB2YWx1ZTogXCJGc2VxUE9DMTAwMG1fQzRcIn0sXG4gIHtsYWJlbDogXCJGc2VxQDEwMDAgbSAtIEM2XCIsIHZhbHVlOiBcIkZzZXFQT0MxMDAwbV9DNlwifSxcbl1cblxudmlld29mIGxlZnRfZGF0YSA9IElucHV0cy5zZWxlY3QoXG4gIG1hcHMsIHtsYWJlbDogXCJsZWZ0IGRhdGFcIiwgZm9ybWF0OiB4ID0+IHgubGFiZWwsIHZhbHVlOiBtYXBzLmZpbmQoeSA9PiB5LmxhYmVsID09IFwiUE9DIGV4cG9ydCAxMDAgbSAoSGVuc29uIGV0IGFsLiwgMjAxMilcIil9XG4pO1xuXG52aWV3b2YgcmlnaHRfZGF0YSA9IElucHV0cy5zZWxlY3QoXG4gIG1hcHMsIHtsYWJlbDogXCJyaWdodCBkYXRhXCIsIGZvcm1hdDogeCA9PiB4LmxhYmVsLCB2YWx1ZTogbWFwcy5maW5kKHkgPT4geS5sYWJlbCA9PSBcIlBPQyBleHBvcnQgMTAwIG0gKERlVnJpZXMgZXQgYWwuLCAyMDE3KVwiKX1cbik7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRMZW5pZW50IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG5kYXRhX3NlbGVjdGVkX2xlZnQgPSBkMy5qc29uKGBkYXRhX2NvbnZlcnNlLyR7bGVmdF9kYXRhLnZhbHVlfS5nZW9qc29uYCkudGhlbihkID0+IGQuZmVhdHVyZXMubWFwKGYgPT4ge1xuICBjb25zdCBjID0gZDMuZ2VvQ2VudHJvaWQoZik7XG4gIHJldHVybiB7dmFsdWU6IGYucHJvcGVydGllcy52YWx1ZSwgbG9uZ2l0dWRlOiBjWzBdLCBsYXRpdHVkZTogY1sxXX07XG59KSlcblxuUGxvdC5wbG90KHtcbiAgcHJvamVjdGlvbjoge3dpZHRoOiA1MDAsIGhlaWdodDogNTAwLCB0eXBlOiBcIm9ydGhvZ3JhcGhpY1wiLCByb3RhdGU6IHJvdGF0ZTJ9LFxuICA8IS0tIHByb2plY3Rpb246IHt0eXBlOiBcIm9ydGhvZ3JhcGhpY1wiLCByb3RhdGU6IFstbG9uZ2l0dWRlLCAtbGF0aXR1ZGVdLCBkb21haW46IGNpcmNsZX0sIC0tPlxuICBjb2xvcjoge1xuICAgIHNjaGVtZTogXCJCdVB1XCIsXG4gICAgZG9tYWluOiBbMCwgbWF4X3ZhbHVlMl0sXG4gICAgbGVnZW5kOiB0cnVlLFxuICAgIGxhYmVsOiBcImNhcmJvbiBmbHV4IChtZyBDIG0tMiB5ZWFyLTEpXCJcbiAgfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJhc3RlcihkYXRhX3NlbGVjdGVkX2xlZnQsIHtcbiAgICBmaWxsOiBcInZhbHVlXCIsXG4gICAgd2lkdGg6IDE4MCxcbiAgICBoZWlnaHQ6IDkxLFxuICAgIHgxOiAtMTgwLFxuICAgIHkxOiAtOTAsXG4gICAgeDI6IDE4MCxcbiAgICB5MjogOTAsXG4gICAgY2xpcDogXCJzcGhlcmVcIixcbiAgICBpbnRlcnBvbGF0ZTogXCJiYXJ5Y2VudHJpY1wiLFxuICAgIHBvaW50ZXJFdmVudHM6IFwiYXV0b1wiLFxuICAgIHRpcDogdHJ1ZVxufSksXG4gICAgUGxvdC5nZW8obGFuZCwge2ZpbGw6IFwiY3VycmVudENvbG9yXCIsIGZpbGxPcGFjaXR5OiAxfSksXG4gICAgUGxvdC5zcGhlcmUoKSxcbiAgXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldExlbmllbnQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbmRhdGFfc2VsZWN0ZWRfcmlnaHQgPSBkMy5qc29uKGBkYXRhX2NvbnZlcnNlLyR7cmlnaHRfZGF0YS52YWx1ZX0uZ2VvanNvbmApLnRoZW4oZCA9PiBkLmZlYXR1cmVzLm1hcChmID0+IHtcbiAgY29uc3QgYyA9IGQzLmdlb0NlbnRyb2lkKGYpO1xuICByZXR1cm4ge3ZhbHVlOiBmLnByb3BlcnRpZXMudmFsdWUsIGxvbmdpdHVkZTogY1swXSwgbGF0aXR1ZGU6IGNbMV19O1xufSkpXG5cblxuUGxvdC5wbG90KHtcbiAgcHJvamVjdGlvbjoge3dpZHRoOiA1MDAsIGhlaWdodDogNTAwLCB0eXBlOiBcIm9ydGhvZ3JhcGhpY1wiLCByb3RhdGU6IHJvdGF0ZTJ9LFxuICBjb2xvcjoge1xuICAgIHNjaGVtZTogXCJCdVB1XCIsXG4gICAgZG9tYWluOiBbMCwgbWF4X3ZhbHVlMl0sXG4gICAgbGVnZW5kOiB0cnVlLFxuICAgIGxhYmVsOiBcImNhcmJvbiBmbHV4IChtZyBDIG0tMiB5ZWFyLTEpXCJcbiAgfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJhc3RlcihkYXRhX3NlbGVjdGVkX3JpZ2h0LCB7XG4gICAgZmlsbDogXCJ2YWx1ZVwiLFxuICAgIHdpZHRoOiAxODAsXG4gICAgaGVpZ2h0OiA5MSxcbiAgICB4MTogLTE4MCxcbiAgICB5MTogLTkwLFxuICAgIHgyOiAxODAsXG4gICAgeTI6IDkwLFxuICAgIGNsaXA6IFwic3BoZXJlXCIsXG4gICAgaW50ZXJwb2xhdGU6IFwiYmFyeWNlbnRyaWNcIixcbiAgICBwb2ludGVyRXZlbnRzOiBcImF1dG9cIixcbiAgICB0aXA6IHRydWVcbn0pLFxuICAgIFBsb3QuZ2VvKGxhbmQsIHtmaWxsOiBcImN1cnJlbnRDb2xvclwiLCBmaWxsT3BhY2l0eTogMX0pLFxuICAgIFBsb3Quc3BoZXJlKCksXG4gIF1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRMZW5pZW50IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiY29udmVyc2VfdmVyc2lvbiA9IFtcbiAge3ZlcnNpb246IFwiQzFcIiwgQkdQOiAwLjYzLCBCQ1A6IDAuODgsIE1peGluZzogMC4xMywgTWlncmFudDogMC4xMSwgUE9DXzEwMDBtOiAwLjM4LCBQT0NfMjAwMG06IDAuMTksXG4gIHJhdGlvXzEwMDBtOiAyLjMsIHJhdGlvXzIwMDBtOiA0LjZ9LFxuICB7dmVyc2lvbjogXCJDMlwiLCBCR1A6IDAuOTIsIEJDUDogMS4xNiwgTWl4aW5nOiAwLjEzLCBNaWdyYW50OiAwLjExLCBQT0NfMTAwMG06IDAuNjgsIFBPQ18yMDAwbTogMC40MixcbiAgcmF0aW9fMTAwMG06IDEuNywgcmF0aW9fMjAwMG06IDIuOH0sXG4gIHt2ZXJzaW9uOiBcIkMzXCIsIEJHUDogMC43MSwgQkNQOiAwLjk1LCBNaXhpbmc6IDAuMTMsIE1pZ3JhbnQ6IDAuMTEsIFBPQ18xMDAwbTogMC40NywgUE9DXzIwMDBtOiAwLjI2LFxuICByYXRpb18xMDAwbTogMi4wLCByYXRpb18yMDAwbTogMy43fSxcbiAge3ZlcnNpb246IFwiQzRcIiwgQkdQOiAxLjg5LCBCQ1A6IDIuNjEsIE1peGluZzogMC40NSwgTWlncmFudDogMC4yNiwgUE9DXzEwMDBtOiAxLjEzLCBQT0NfMjAwMG06IDAuNDcsXG4gIHJhdGlvXzEwMDBtOiAyLjMsIHJhdGlvXzIwMDBtOiA1LjZ9LFxuICB7dmVyc2lvbjogXCJDNVwiLCBCR1A6IDEuODYsIEJDUDogMi40NCwgTWl4aW5nOiAwLjMyLCBNaWdyYW50OiAwLjI2LCBQT0NfMTAwMG06IDEuMTMsIFBPQ18yMDAwbTogMC40NyxcbiAgcmF0aW9fMTAwMG06IDIuMiwgcmF0aW9fMjAwMG06IDUuMn0sXG4gIHt2ZXJzaW9uOiBcIkM2XCIsIEJHUDogMC43NiwgQkNQOiAxLjAwLCBNaXhpbmc6IDAuMTMsIE1pZ3JhbnQ6IDAuMTEsIFBPQ18xMDAwbTogMC40NiwgUE9DXzIwMDBtOiAwLjE5LFxuICByYXRpb18xMDAwbTogMi4yLCByYXRpb18yMDAwbTogNS4zfSxcbiAge3ZlcnNpb246IFwiQzdcIiwgQkdQOiAwLjYzLCBCQ1A6IDAuOTYsIE1peGluZzogMC4yMiwgTWlncmFudDogMC4xMSwgUE9DXzEwMDBtOiAwLjM4LCBQT0NfMjAwMG06IDAuMTksXG4gIHJhdGlvXzEwMDBtOiAyLjUsIHJhdGlvXzIwMDBtOiA1LjF9LFxuXTtcblxudmlld29mIHNlbGVjdF9wdW1wID0gSW5wdXRzLnNlbGVjdChcbiAgW1xuICAgIHtsYWJlbDogXCJCR1BcIiwgdmFsdWU6IFwiQkdQXCJ9LFxuICAgIHtsYWJlbDogXCJNaXhpbmdcIiwgdmFsdWU6IFwiTWl4aW5nXCJ9LFxuICAgIHtsYWJlbDogXCJNaWdyYW50IChkaWVsKVwiLCB2YWx1ZTogXCJNaWdyYW50XCJ9LFxuICAgIHtsYWJlbDogXCJCQ1BcIiwgdmFsdWU6IFwiQkNQXCJ9LFxuICAgIHtsYWJlbDogXCJQT0MgZmx1eCBhdCAxMDAwIG1cIiwgdmFsdWU6IFwiUE9DXzEwMDBtXCJ9LFxuICAgIHtsYWJlbDogXCJQT0MgZmx1eCBhdCAyMDAwIG1cIiwgdmFsdWU6IFwiUE9DXzIwMDBtXCJ9LFxuICAgIHtsYWJlbDogXCJSYXRpbyBCQ1Agb3ZlciBQT0MgZmx1eCBhdCAxMDAwIG1cIiwgdmFsdWU6IFwicmF0aW9fMTAwMG1cIn0sXG4gICAge2xhYmVsOiBcIlJhdGlvIEJDUCBvdmVyIFBPQyBmbHV4IGF0IDIwMDAgbVwiLCB2YWx1ZTogXCJyYXRpb18yMDAwbVwifVxuICBdLFxuICB7bGFiZWw6IGh0bWxgR2xvYmFsIEY8c3ViPnNlcTwvc3ViPiA8YnI+KFBnIEMgeWVhcjxzdXA+LTE8L3N1cD4pYCwgZm9ybWF0OiB4ID0+IHgubGFiZWwsIHZhbHVlOiBtYXBzLmZpbmQoeSA9PiB5LmxhYmVsID09IFwiQkdQXCIpfVxuKTtcblxuUGxvdC5wbG90KHtcbiAgPCEtLSBjYXB0aW9uOiBcIkhpc3RvZ3JhbSBvZiBDT05WRVJTRSB2YWx1ZXMgYmFzZWQgb24gc2VsZWN0ZWQgcHVtcFwiLCAtLT5cbiAgeToge2dyaWQ6IHRydWV9LFxuICBtYXJrczogW1xuICAgIFBsb3QuYmFyWShjb252ZXJzZV92ZXJzaW9uLCB7eDogXCJ2ZXJzaW9uXCIsIHk6IHNlbGVjdF9wdW1wLnZhbHVlfSksXG4gICAgUGxvdC50ZXh0KGNvbnZlcnNlX3ZlcnNpb24sIHt4OiBcInZlcnNpb25cIiwgeTogc2VsZWN0X3B1bXAudmFsdWUsIHRleHQ6IHNlbGVjdF9wdW1wLCB0ZXh0QW5jaG9yOiBcIm1pZGRsZVwiLCBkeTogMTAsIGZpbGw6IFwid2hpdGVcIn0pLFxuICAgIFBsb3QucnVsZVkoWzBdKVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdtYXhfdmFsdWUxJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2YxMDBfZGVwdGgnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgncm90YXRlMicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdtYXhfdmFsdWUyJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2xlZnRfZGF0YScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdyaWdodF9kYXRhJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3NlbGVjdF9wdW1wJykifV19
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -1404,6 +1429,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1438,7 +1481,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1453,15 +1500,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1470,7 +1530,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1512,6 +1580,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -1587,7 +1678,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
@@ -1676,7 +1766,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright © 2023 Florian Ricour. All rights reserved.</p>
+<p>Copyright © 2024 Florian Ricour. All rights reserved.</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

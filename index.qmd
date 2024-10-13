@@ -1,24 +1,76 @@
-::: {.grid}
+---
+about:
+  id: hero-heading
+  template: trestles
+  image: images/lov_member-florian_ricour.jpg
+  links:
+    - icon: envelope
+      text: Contact me
+      href: mailto:info@fricour.aleeas.com?
+    - icon: github
+      text: Github
+      href: https://github.com/fricour
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/florian-ricour-a06359281
+    - text: ORCID
+      href: https://orcid.org/0000-0001-6059-9236
+---
 
-::: {.g-col-4}
-```{r}
-# image of myself in a circle to make it look nice
-library(magick)
-library(cropcircles)
-# me <- image_read('images/lov_member-florian_ricour.jpg')
-#circle_crop(images = 'images/lov_member-florian_ricour.jpg', to = 'images/lov_member-florian_ricour_circle.png')
-me <- image_read('images/lov_member-florian_ricour_circle.png')
-image_scale(me, "550x550")
-```
+::: {#hero-heading}
+<strong>[Hi, I am Florian ! ]{style="font-size: xx-large;"}</strong><br>
+
+I am a Project Leader at the Royal Belgian Institute of Natural Sciences ([RBINS](https://www.naturalsciences.be/)) in Brussels. My projects involve the development of biogeochemical models and data visualization tools for the Belgian offshore wind farm.
+
+I am particularly interested in developping data visualization and exploitation tools for scientists and policy makers.
+
+## Education
+
+2019-23 \| **PhD in Biogeochemistry**, *Towards a new insight of the carbon transport in the global ocean* ([Enjoy it here](https://orbi.uliege.be/handle/2268/304539)), Villefranche Oceanographic Laboratory, Sorbonne University, France
+
+2016-18 \| **Master of Science in Oceanography**, University of Liège, Belgium
+
+2013-16 \| **Bachelor in Applied Sciences**, University of Liège, Belgium
+
+## Experience
+
+Current \| **Project Leader**, Royal Belgian Institute of Natural Sciences, Belgium
+
+2018-19 \| **Researcher**, University of Liège, Belgium
 :::
 
-::: {.g-col-8}
-<strong><span style="font-size: xxx-large;">Hi, I am Florian ! </span></strong><br><br>
-I have a PhD in oceanography, but it turns out that I'm more of a data expert than an ocean expert.<br><br>
-During my PhD, I developed an automatic zooplankton classification model using machine learning tools for on-board cameras in autonomous underwater vehicles. For this, I developed a python package called [uvpec](https://github.com/ecotaxa/uvpec/) to train different image classification models for the [Underwater Vision Profiler 6](http://www.hydroptic.com/index.php/public/Page/product_item/UVP6-LP).<br><br>
-Working with Big Data was also part of the job so I started to develop a bunch of Shiny apps (e.g. [REFINE](http://oao2022.imev-mer.fr:3838/ricour/RefineParking/),  [CARBON](https://fricour.shinyapps.io/carbon_fluxes_app/) and [ARGO](http://oao2022.imev-mer.fr:3838/ricour/ArgoMock/) to better visualize and try to better understand the carbon dynamics of the ocean at local and global scales.<br><br>
-In my spare time, I try to keep up with the latest geeky thing, mostly from Posit (ex-RStudio) and web app development (mostly Shiny) as well as data vizualisation.<br><br>
-Lastly, I ride my bike. A lot.
-:::
-
-:::
+<h2>Data Scientist | Machine Learning Enthusiast | Avid Cyclist</h2>
+<p>With a PhD in biogeochemistry, I've found my true calling at the intersection of data science and marine research. My expertise lies not just in understanding the ocean, but in harnessing the power of data to unlock its secrets.</p>
+<h3>Professional Highlights</h3>
+<ul>
+  <li>Developed an automatic zooplankton classification model using machine learning for autonomous underwater vehicles</li>
+  <li>Created <a href="https://github.com/ecotaxa/uvpec/">uvpec</a>, a Python package for training image classification models for the <a href="http://www.hydroptic.com/index.php/public/Page/product_item/UVP6-LP">Underwater Vision Profiler 6</a></li>
+  <li>Expertise in Big Data analysis and visualization in oceanography</li>
+</ul>
+<h3>Projects</h3>
+<p>I've developed several web apps to visualize and analyze ocean carbon dynamics:</p>
+<ul>
+  <li><a href="http://oao2022.imev-mer.fr:3838/ricour/RefineParking/">REFINE</a></li>
+  <li><a href="https://fricour-ws.observablehq.cloud/particle-explorer/">ParticleExplorer</a></li>
+</ul>
+<h3>Hackathons and Entrepreneurship</h3>
+<p>I'm passionate about applying data science to real-world challenges. My achievements include:</p>
+<h4>Copernicus Hackathons</h4>
+<ul>
+  <li>1st Place, Brussels (Belgium) — Detecting acid mine drainage using satellite imagery</li>
+  <li>3rd Place, Sofia (Bulgaria) — Detecting chlorophyll-a blooms using satellite imagery</li>
+  <li>5th Place, Cork (Ireland) — Detecting coastal changes for the protection of historical sites using satellite imagery</li>
+</ul>
+<h4>Start-up Initiatives</h4>
+<ul>
+  <li>PARSEC Accelerator — Developed Project EXAMINE, a software prototype for detecting acid mine drainage using open-source Copernicus satellite data</li>
+  <li>Participant in the Copernicus Accelerator program</li>
+</ul>
+<h3>Interests</h3>
+<p>When I'm not diving into data, you can find me:</p>
+<ul>
+  <li>Exploring the latest in web app development, particularly Shiny</li>
+  <li>Experimenting with cutting-edge data visualization techniques</li>
+  <li>Keeping up with AI innovations</li>
+  <li>Cycling - because life's too short to stay indoors!</li>
+</ul>

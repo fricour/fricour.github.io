@@ -13,7 +13,6 @@ extract_garmin_data <- function(file){
   f <- readFitFile(file)
   
   # get file id
-  #f_id <- file_id(f)$serial_number
   f_id <- unlist(stringr::str_split(file, "/"))
   f_id <- unlist(stringr::str_split(f_id[length(f_id)], '_'))[1]  
     
@@ -35,12 +34,6 @@ extract_garmin_data <- function(file){
   return(data)
 }
 
-# check error ('id')
-# which(stringr::str_detect(fit_files, '2463451310') == TRUE)
-
-# test
-#toto <- map_dfr(fit_files[80:90], extract_garmin_data)
-
 # extract all data
-# all_activities <- map_dfr(fit_files, extract_garmin_data)
-# vroom::vroom_write(all_activities, 'data/all_activities_270723.csv')
+all_activities <- map_dfr(fit_files, extract_garmin_data)
+vroom::vroom_write(all_activities, 'data/all_activities_13102024.csv')

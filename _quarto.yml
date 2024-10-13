@@ -3,29 +3,21 @@ project:
   output-dir: docs
 
 website:
-  #title: 
+  #title:
   navbar:
-    #background: danger
+    background: "#2C3E50"
     #foreground: success
     left:
       - href: index.qmd
         text: Home
-      - href: curriculum.qmd
-        text: Curriculum Vitae
+      - href: articles.qmd
+        text: Portfolio
       - href: cycling.qmd
         text: Cycling activities
-      - href: articles.qmd
-        text: Data Viz
-    tools:
-      - icon: github
-        href: https://github.com/fricour
-      - icon: linkedin
-        href: https://linkedin.com/in/florian-ricour-a06359281
-      - icon: envelope
-        href: mailto:info@fricour.aleeas.com?
   page-footer: 
-    center: "Copyright &copy; 2023 Florian Ricour. All rights reserved."
+    center: "Copyright &copy; 2024 Florian Ricour. All rights reserved."
     background: light
+  favicon: favicon-16x16.png
 
 format:
   html:
@@ -36,7 +28,7 @@ format:
     toc: true
     page-layout: full
 
-editor: visual
+editor: source
 
 execute: 
   echo: false

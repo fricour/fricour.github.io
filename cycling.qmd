@@ -1,17 +1,24 @@
-Roads (commuting, bikepacking and training) since 2017.
+Long-Distance Cycling Routes (50+ km)
+Established since 2017 \| Last updated: November 13, 2024
 
-No car --- no engine (except sometimes the train) --- only freedom (and some pain but that's part of the fun).
+Embrace the journey—where challenge meets joy, and every pedal stroke is an adventure.
 
 ```{r, fig.height = 10}
 
 library(leaflet)
-library(leafgl)
+library(leafgl) # needs to be installed with the github version, not the one on CRAN otherwise no shapes will appear (remotes::install_github("r-spatial/leafgl"))
+library(sf)
 
-cycling <- sf::read_sf('data/cycling.geojson')
+cycling <- sf::read_sf('data/cycling_min_50km.geojson')
 
 leaflet() |>
   addProviderTiles(provider = providers$CartoDB.Positron) |>
   fitBounds(lng1 = 0, lat1 = 40, lng2 = 10, lat2 = 50) |>
-  addGlPolylines(data = cycling)
+  addGlPolylines(data = cycling, color = "#4A90E2")
+
+# leaflet(cycling) |>
+#   addProviderTiles(provider = providers$CartoDB.Positron) |>
+#   addPolylines(color = "purple")
+
 
 ```
