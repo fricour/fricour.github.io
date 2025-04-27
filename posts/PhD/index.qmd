@@ -1,0 +1,34 @@
+---
+title: "PhD Oral Defense"
+description: "Towards a better understanding of the carbon cycle in the global ocean"
+author: "Florian Ricour"
+date: "2023-05-23"
+categories: [academic, biological carbon pump]
+image: "images/mosaic_big.png"
+
+execute:
+  echo: false
+  warning: false
+  error: true
+  cache: true
+  
+format: 
+  html:
+    page-layout: article
+---
+
+# The Ocean's Role in the Carbon Cycle: Understanding the Biological Carbon Pump
+
+The ocean is known to play a key role in the carbon cycle. Without it, atmospheric CO2 levels would be much higher than they are today thanks to the presence of carbon pumps that maintain a gradient of dissolved inorganic carbon (DIC) between the surface and the deep ocean.
+
+The biological carbon pump (BCP) is primarily responsible for this gradient. It consists in a series of ocean processes through which inorganic carbon is fixed as organic matter by photosynthesis in sunlit surface waters and then transported to the ocean interior and possibly the sediment where it will be sequestered from the atmosphere for millions of years. The BCP was long thought as solely the gravitational settling of particulate organic carbon (POC). However, a new paradigm for the BCP has recently been defined in which physically and biologically mediated particle injection pumps have been added to the original definition. 
+
+Physically mediated particle injection pumps provide a pathway to better understand the transport of dissolved organic carbon (DOC) whereas biologically mediated particle injection pumps focus on the transport of POC by vertically migrating animals, either daily or seasonally. Therefore, a better understanding of these processes could help bridge the gap between carbon leaving the surface and carbon demand in the ocean interior. 
+
+To address this new paradigm, this work will benefit from the advent of recent sensors that equip a new generation of Biogeochemical-Argo floats (BGC-Argo). The first part focuses on the development of an embedded zooplankton classification model for the Underwater Vision Profiler 6 (UVP6) under strict technical and energy constraints. The second part studies particle and carbon fluxes in the Labrador Sea using BGC-Argo floats equipped for the first time with the UVP6 and an optical sediment trap (OST), providing two independent measurements of sinking particles. The last part consists in revisiting the BCP using a new framework called CONVERSE for Continuous Vertical Sequestration. With this new approach, we re-evaluate the total carbon sequestered from the atmosphere (≥ 100 years) by the BCP and its transport pathways on the entire water column, in contrast to the carbon sequestration typically assumed below a fixed reference depth.
+
+**Keywords:** Carbon pumps – Underwater Vision Profiler 6 – BGC-Argo floats – Machine learning
+
+<iframe src="presentation_final.html" width="100%" height="600px" frameborder="0"></iframe>
+
+Note - click on F for full screen and O for an overview of the slide deck. You'll also need to zoom a bit (CTRL + to reach the necessary zoom % for interactive charts)
