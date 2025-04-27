@@ -1,5 +1,5 @@
 ---
-title: "PhD Oral Defense"
+title: "PhD oral defense"
 description: "Towards a better understanding of the carbon cycle in the global ocean"
 author: "Florian Ricour"
 date: "2023-05-23"
