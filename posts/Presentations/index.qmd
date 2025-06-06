@@ -1,0 +1,24 @@
+---
+title: "MarSens Presentation"
+description: "Observing the Biological Carbon Pump with BGC-Argo floats"
+author: "Florian Ricour"
+date: "2023-06-06"
+categories: [biological carbon pump]
+image: "images/float_on_site.jpeg"
+
+execute:
+  echo: false
+  warning: false
+  error: true
+  cache: true
+  
+format: 
+  html:
+    page-layout: article
+---
+
+**Keywords:** Carbon pumps – Underwater Vision Profiler 6 – BGC-Argo floats – Machine learning
+
+<iframe src="presentation.html" width="100%" height="600px" frameborder="0"></iframe>
+
+Note - click on F for full screen and O for an overview of the slide deck. You'll also need to zoom a bit (CTRL + to reach the necessary zoom % for interactive charts)
